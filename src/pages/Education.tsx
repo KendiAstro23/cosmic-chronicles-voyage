@@ -6,11 +6,11 @@ import SiteNav from '../components/SiteNav';
 
 const Education = () => {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 flex items-center justify-center p-4 md:p-0">
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 flex items-center justify-center p-2 md:p-0 overflow-hidden">
       <SiteNav />
       {/* Navigation */}
       <motion.div
-        className="fixed top-4 md:top-6 left-4 md:left-6 z-50"
+        className="fixed top-2 md:top-6 left-2 md:left-6 z-50"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -28,15 +28,15 @@ const Education = () => {
 
       {/* Title */}
       <motion.div
-        className="absolute top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-40 px-4 text-center"
+        className="absolute top-2 md:top-6 left-1/2 transform -translate-x-1/2 z-40 px-2 md:px-4 text-center"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <h1 className="font-cinzel text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-amber-100 drop-shadow-2xl text-center">
+        <h1 className="font-cinzel text-xl sm:text-2xl md:text-4xl lg:text-6xl text-amber-100 drop-shadow-2xl text-center">
           Explorer's Journal
         </h1>
-        <p className="font-medieval text-sm md:text-lg lg:text-xl text-cyan-200 text-center mt-1 md:mt-2 drop-shadow-lg">
+        <p className="font-medieval text-xs sm:text-sm md:text-lg lg:text-xl text-cyan-200 text-center mt-1 md:mt-2 drop-shadow-lg">
           Chronicles of Learning & Discovery
         </p>
       </motion.div>
