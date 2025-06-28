@@ -94,124 +94,48 @@ const pagePairs = [
   // University Education Page
   {
     left: (
-      <div className="parchment-bg" style={{ 
-        position: 'relative', 
-        minHeight: '100%', 
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'stretch',
-        justifyContent: 'flex-start',
-        height: '100%' 
-      }}>
-        {/* Top section: absolute container for info+fairy */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '24px',
-            left: 0,
-            right: '32px',
-            zIndex: 3,
-            width: 'calc(100% - 32px)',
-            height: '380px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'stretch',
-            justifyContent: 'flex-start',
-          }}
-        >
-          {/* Top row: Education Info left, Fairy right */}
-          <div style={{ 
-            display: 'flex', 
-            flexDirection: 'row', 
-            alignItems: 'flex-start', 
-            width: '100%' 
-          }}>
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              alignItems: 'flex-start', 
-              gap: '0.6em', 
-              minWidth: '240px', 
-              maxWidth: '380px', 
-              background: 'rgba(255,255,255,0.01)', 
-              padding: '16px 0 16px 0', 
-              borderRadius: '18px', 
-              boxShadow: '0 2px 16px #ffd70022', 
-              marginRight: 'auto', 
-              marginLeft: 0 
-            }}>
-              <div className="page-title gold-glow-alt">{educationInfo[0].title}</div>
-              <div className="school-name gold-glow-alt">{educationInfo[0].school}</div>
-              <div className="school-degree">{educationInfo[0].degree}</div>
-              <div className="school-dates">{educationInfo[0].dates}</div>
-              <div className="school-location">{educationInfo[0].location}</div>
-            </div>
+      <div className="parchment-bg mobile-education-layout">
+        {/* Header Section with Title */}
+        <div className="mobile-header-section">
+          <div className="page-title gold-glow-alt mobile-title">{educationInfo[0].title}</div>
+        </div>
+        
+        {/* Main Content Section */}
+        <div className="mobile-content-section">
+          {/* Education Info */}
+          <div className="mobile-education-info">
+            <div className="school-name gold-glow-alt">{educationInfo[0].school}</div>
+            <div className="school-degree">{educationInfo[0].degree}</div>
+            <div className="school-dates">{educationInfo[0].dates}</div>
+            <div className="school-location">{educationInfo[0].location}</div>
+          </div>
+          
+          {/* Fairy Image */}
+          <div className="mobile-fairy-container">
             <img
               src="/fairy4.png"
               alt="fairy4"
-              className="book-fairy fairy-edu-large-cover"
-              style={{
-                width: '200px',
-                height: '250px',
-                minWidth: '140px',
-                minHeight: '180px',
-                objectFit: 'contain',
-                marginLeft: 'auto',
-                marginRight: '40px',
-                opacity: 0.98,
-                filter: 'drop-shadow(0 0 80px #fff7b2cc) drop-shadow(0 0 40px #FFD700)',
-              }}
+              className="book-fairy fairy-edu-large-cover mobile-fairy"
             />
           </div>
         </div>
-        {/* Bottom section: Elephant image, always visible and centered */}
-        <div style={{ 
-          flex: 1, 
-          display: 'flex', 
-          alignItems: 'flex-end', 
-          justifyContent: 'center', 
-          minHeight: '280px',
-          marginTop: '340px'
-        }}>
+        
+        {/* Bottom Section with Elephant */}
+        <div className="mobile-bottom-section">
           <img
             src="/elephant.png"
             alt="elephant"
-            className="animal-elephant-edu elephant-animated"
-            style={{
-              width: '580px',
-              height: '320px',
-              objectFit: 'contain',
-              opacity: 0.98,
-              filter: 'drop-shadow(0 0 48px #ffd70088)',
-              position: 'static',
-            }}
+            className="animal-elephant-edu elephant-animated mobile-elephant"
           />
         </div>
-        <div className="lined-content" style={{ height: '100%' }} />
       </div>
     ),
     right: (
-      <div className="parchment-bg">
-        <div className="lined-content" style={{ 
-          width: '100%', 
-          height: '100%',
-          padding: '20px',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}>
-          <div className="description-text alt-color" style={{
-            width: '100%',
-            maxWidth: '100%',
-            wordWrap: 'break-word',
-            overflowWrap: 'break-word',
-            hyphens: 'auto',
-            lineHeight: '1.5',
-            fontSize: '1.3rem'
-          }}>
-            <p style={{ marginBottom: '1em', textAlign: 'justify' }}>{educationInfo[0].description[0]}</p>
-            <p style={{ marginBottom: '0', textAlign: 'justify' }}>{educationInfo[0].description[1]}</p>
+      <div className="parchment-bg mobile-description-layout">
+        <div className="mobile-description-content">
+          <div className="description-text alt-color mobile-description">
+            <p>{educationInfo[0].description[0]}</p>
+            <p>{educationInfo[0].description[1]}</p>
           </div>
         </div>
       </div>
@@ -220,104 +144,47 @@ const pagePairs = [
   // ALX Education Page
   {
     left: (
-      <div className="parchment-bg" style={{ position: 'relative', height: '100%' }}>
-        {/* Enlarged Leopard at the top */}
-        <img
-          src="/leopard.png"
-          alt="leopard"
-          className="animal-img animal-leopard-edu animal-large"
-          style={{
-            width: '180px',
-            height: 'auto',
-            objectFit: 'contain',
-            position: 'absolute',
-            top: '20px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 1,
-            opacity: 0.9,
-            filter: 'drop-shadow(0 0 24px #ffd70088)'
-          }}
-        />
-        {/* Bottom row: Fairy left, Info right */}
-        <div className="lined-content" style={{ 
-          height: '100%', 
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end', 
-          paddingBottom: '48px'
-        }}>
-          <div style={{ 
-            display: 'flex', 
-            flexDirection: 'row', 
-            alignItems: 'flex-end', 
-            justifyContent: 'space-between', 
-            width: '100%', 
-            position: 'relative', 
-            marginBottom: 0, 
-            zIndex: 3 
-          }}>
-            {/* Fairy on the left */}
+      <div className="parchment-bg mobile-education-layout">
+        {/* Header Section with Title */}
+        <div className="mobile-header-section">
+          <div className="page-title gold-glow-alt mobile-title">{educationInfo[1].title}</div>
+        </div>
+        
+        {/* Leopard Image at Top */}
+        <div className="mobile-animal-top">
+          <img
+            src="/leopard.png"
+            alt="leopard"
+            className="animal-img animal-leopard-edu mobile-leopard"
+          />
+        </div>
+        
+        {/* Main Content Section */}
+        <div className="mobile-content-section">
+          {/* Education Info */}
+          <div className="mobile-education-info">
+            <div className="school-name gold-glow-alt">{educationInfo[1].school}</div>
+            <div className="school-degree">{educationInfo[1].degree}</div>
+            <div className="school-dates">{educationInfo[1].dates}</div>
+          </div>
+          
+          {/* Fairy Image */}
+          <div className="mobile-fairy-container">
             <img
               src={fairyImages[2]}
               alt="fairy3"
-              className="book-fairy fairy-edu-large-cover"
-              style={{ 
-                width: '220px',
-                height: '240px',
-                minWidth: '80px',
-                minHeight: '100px',
-                position: 'relative', 
-                left: 0, 
-                bottom: 0, 
-                zIndex: 2, 
-                opacity: 0.98, 
-                filter: 'drop-shadow(0 0 40px #fff7b2cc) drop-shadow(0 0 16px #FFD700)' 
-              }}
+              className="book-fairy fairy-edu-large-cover mobile-fairy"
             />
-            {/* Education info on the right */}
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              alignItems: 'flex-end', 
-              maxWidth: '320px',
-              background: 'rgba(255,255,255,0.01)', 
-              padding: '14px 16px',
-              borderRadius: '18px', 
-              boxShadow: '0 2px 16px #ffd70022' 
-            }}>
-              <div className="page-title gold-glow-alt">{educationInfo[1].title}</div>
-              <div className="school-name gold-glow-alt">{educationInfo[1].school}</div>
-              <div className="school-degree">{educationInfo[1].degree}</div>
-              <div style={{ height: '0.7em' }} />
-              <div className="school-dates">{educationInfo[1].dates}</div>
-            </div>
           </div>
         </div>
       </div>
     ),
     right: (
-      <div className="parchment-bg">
-        <div className="lined-content" style={{ 
-          width: '100%', 
-          height: '100%',
-          padding: '20px',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}>
-          <div className="description-text alt-color" style={{
-            width: '100%',
-            maxWidth: '100%',
-            wordWrap: 'break-word',
-            overflowWrap: 'break-word',
-            hyphens: 'auto',
-            lineHeight: '1.5',
-            fontSize: '1.3rem'
-          }}>
-            <p style={{ marginBottom: '1em', textAlign: 'justify' }}>{educationInfo[1].description[0]}</p>
-            <p style={{ marginBottom: '0', textAlign: 'justify' }}>{educationInfo[1].description[1]}</p>
+      <div className="parchment-bg mobile-description-layout">
+        <div className="mobile-description-content">
+          <div className="description-text alt-color mobile-description">
+            <p>{educationInfo[1].description[0]}</p>
+            <p>{educationInfo[1].description[1]}</p>
           </div>
         </div>
       </div>
@@ -345,45 +212,23 @@ const pagePairs = [
   // Work Experience 1
   {
     left: (
-      <div className="parchment-bg" style={{ 
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center', 
-        height: '100%', 
-        position: 'relative' 
-      }}>
-        {/* Enlarged Dragon at top-middle */}
-        <div style={{ 
-          position: 'absolute', 
-          top: '32px', 
-          left: 0, 
-          right: 0, 
-          display: 'flex',
-          justifyContent: 'center',
-          pointerEvents: 'none', 
-          zIndex: 2 
-        }}>
-          <img src="/dr2.png" alt="dragon 2" style={{ 
-            width: '180px',
-            height: '180px',
-            objectFit: 'contain', 
-            marginBottom: '0.8em',
-            filter: 'drop-shadow(0 0 32px #ffd70088)' 
-          }} />
+      <div className="parchment-bg mobile-work-layout">
+        {/* Header Section */}
+        <div className="mobile-header-section">
+          <div className="page-title gold-glow-alt mobile-title">WORK EXPERIENCE</div>
         </div>
-        {/* Work Experience centered below image */}
-        <div className="lined-content" style={{ 
-          width: '100%', 
-          zIndex: 1, 
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center', 
-          minHeight: '60%', 
-          marginTop: '160px'
-        }}>
-          <div className="page-title gold-glow-alt">WORK EXPERIENCE</div>
+        
+        {/* Dragon Image */}
+        <div className="mobile-animal-top">
+          <img 
+            src="/dr2.png" 
+            alt="dragon 2" 
+            className="mobile-dragon"
+          />
+        </div>
+        
+        {/* Work Info */}
+        <div className="mobile-work-info">
           <div className="work-title">{workExperiences[0].title}</div>
           <div className="work-company">{workExperiences[0].company}</div>
           <div className="work-location">{workExperiences[0].location}</div>
@@ -392,28 +237,12 @@ const pagePairs = [
       </div>
     ),
     right: (
-      <div className="parchment-bg">
-        <div className="lined-content" style={{ 
-          width: '100%', 
-          height: '100%',
-          padding: '20px',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}>
-          <div className="description-text alt-color" style={{
-            width: '100%',
-            maxWidth: '100%',
-            wordWrap: 'break-word',
-            overflowWrap: 'break-word',
-            hyphens: 'auto',
-            lineHeight: '1.5',
-            fontSize: '1.3rem'
-          }}>
-            <p style={{ marginBottom: '1em', textAlign: 'justify' }}>During my externship, I researched Expedia's competitors to help improve their advertising strategies.
+      <div className="parchment-bg mobile-description-layout">
+        <div className="mobile-description-content">
+          <div className="description-text alt-color mobile-description">
+            <p>During my externship, I researched Expedia's competitors to help improve their advertising strategies.
 I suggested ways to boost client visibility within their Retail Media Network, contributing ideas for more effective campaign planning.</p>
-            <p style={{ marginBottom: '0', textAlign: 'justify' }}>🔭 With the lens of a curious scout, I explored unfamiliar markets, bringing back insights to sharpen Expedia's vision.</p>
+            <p>🔭 With the lens of a curious scout, I explored unfamiliar markets, bringing back insights to sharpen Expedia's vision.</p>
           </div>
         </div>
       </div>
@@ -422,45 +251,23 @@ I suggested ways to boost client visibility within their Retail Media Network, c
   // Work Experience 2
   {
     left: (
-      <div className="parchment-bg" style={{ 
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center', 
-        height: '100%', 
-        position: 'relative' 
-      }}>
-        {/* Enlarged Hippo at top-middle */}
-        <div style={{ 
-          position: 'absolute', 
-          top: '32px', 
-          left: 0, 
-          right: 0, 
-          display: 'flex',
-          justifyContent: 'center',
-          pointerEvents: 'none', 
-          zIndex: 2 
-        }}>
-          <img src="/hippo.png" alt="hippo" style={{ 
-            width: '220px',
-            height: '220px',
-            objectFit: 'contain', 
-            marginBottom: '1.0em',
-            filter: 'drop-shadow(0 0 32px #ffd70088)' 
-          }} />
+      <div className="parchment-bg mobile-work-layout">
+        {/* Header Section */}
+        <div className="mobile-header-section">
+          <div className="page-title gold-glow-alt mobile-title">WORK EXPERIENCE</div>
         </div>
-        {/* Work Experience centered below image */}
-        <div className="lined-content" style={{ 
-          width: '100%', 
-          zIndex: 1, 
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center', 
-          minHeight: '60%', 
-          marginTop: '180px'
-        }}>
-          <div className="page-title gold-glow-alt">WORK EXPERIENCE</div>
+        
+        {/* Hippo Image */}
+        <div className="mobile-animal-top">
+          <img 
+            src="/hippo.png" 
+            alt="hippo" 
+            className="mobile-hippo"
+          />
+        </div>
+        
+        {/* Work Info */}
+        <div className="mobile-work-info">
           <div className="work-title">{workExperiences[1].title}</div>
           <div className="work-company">{workExperiences[1].company}</div>
           <div className="work-location">{workExperiences[1].location}</div>
@@ -469,29 +276,13 @@ I suggested ways to boost client visibility within their Retail Media Network, c
       </div>
     ),
     right: (
-      <div className="parchment-bg">
-        <div className="lined-content" style={{ 
-          width: '100%', 
-          height: '100%',
-          padding: '20px',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}>
-          <div className="description-text alt-color" style={{
-            width: '100%',
-            maxWidth: '100%',
-            wordWrap: 'break-word',
-            overflowWrap: 'break-word',
-            hyphens: 'auto',
-            lineHeight: '1.5',
-            fontSize: '1.3rem'
-          }}>
-            <p style={{ marginBottom: '1em', textAlign: 'justify' }}>I helped build an escrow platform that protects both buyers and sellers during online transactions.
+      <div className="parchment-bg mobile-description-layout">
+        <div className="mobile-description-content">
+          <div className="description-text alt-color mobile-description">
+            <p>I helped build an escrow platform that protects both buyers and sellers during online transactions.
 I handled the frontend development and collaborated on planning and team coordination.</p>
-            <p style={{ marginBottom: '1em', textAlign: 'justify' }}>I also helped increase user engagement and visibility through interactive features and marketing ideas aimed at growing the platform's impact.</p>
-            <p style={{ marginBottom: '0', textAlign: 'justify' }}>🛡️ I acted as both builder and shield-bearer—crafting tools for trust while guiding the team through the maze of early-stage challenges.</p>
+            <p>I also helped increase user engagement and visibility through interactive features and marketing ideas aimed at growing the platform's impact.</p>
+            <p>🛡️ I acted as both builder and shield-bearer—crafting tools for trust while guiding the team through the maze of early-stage challenges.</p>
           </div>
         </div>
       </div>
@@ -500,45 +291,23 @@ I handled the frontend development and collaborated on planning and team coordin
   // Work Experience 3
   {
     left: (
-      <div className="parchment-bg" style={{ 
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center', 
-        height: '100%', 
-        position: 'relative' 
-      }}>
-        {/* Enlarged Dragon1 at top-middle */}
-        <div style={{ 
-          position: 'absolute', 
-          top: '32px', 
-          left: 0, 
-          right: 0, 
-          display: 'flex',
-          justifyContent: 'center',
-          pointerEvents: 'none', 
-          zIndex: 2 
-        }}>
-          <img src="/dr1.png" alt="dragon 1" style={{ 
-            width: '180px',
-            height: '180px',
-            objectFit: 'contain', 
-            marginBottom: '0.8em',
-            filter: 'drop-shadow(0 0 32px #ffd70088)' 
-          }} />
+      <div className="parchment-bg mobile-work-layout">
+        {/* Header Section */}
+        <div className="mobile-header-section">
+          <div className="page-title gold-glow-alt mobile-title">WORK EXPERIENCE</div>
         </div>
-        {/* Work Experience centered below image */}
-        <div className="lined-content" style={{ 
-          width: '100%', 
-          zIndex: 1, 
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center', 
-          minHeight: '60%', 
-          marginTop: '160px'
-        }}>
-          <div className="page-title gold-glow-alt">WORK EXPERIENCE</div>
+        
+        {/* Dragon1 Image */}
+        <div className="mobile-animal-top">
+          <img 
+            src="/dr1.png" 
+            alt="dragon 1" 
+            className="mobile-dragon"
+          />
+        </div>
+        
+        {/* Work Info */}
+        <div className="mobile-work-info">
           <div className="work-title">{workExperiences[2].title}</div>
           <div className="work-company">{workExperiences[2].company}</div>
           <div className="work-location">{workExperiences[2].location}</div>
@@ -547,28 +316,12 @@ I handled the frontend development and collaborated on planning and team coordin
       </div>
     ),
     right: (
-      <div className="parchment-bg">
-        <div className="lined-content" style={{ 
-          width: '100%', 
-          height: '100%',
-          padding: '20px',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}>
-          <div className="description-text alt-color" style={{
-            width: '100%',
-            maxWidth: '100%',
-            wordWrap: 'break-word',
-            overflowWrap: 'break-word',
-            hyphens: 'auto',
-            lineHeight: '1.5',
-            fontSize: '1.3rem'
-          }}>
-            <p style={{ marginBottom: '1em', textAlign: 'justify' }}>I joined the APP mission to build a space for African product leaders. My role involved designing and developing the website, helping shape a smooth and scalable user experience.</p>
-            <p style={{ marginBottom: '1em', textAlign: 'justify' }}>I also helped grow the community through social media campaigns and digital storytelling. Alongside the team, I planned and ran events that brought in high-quality leads and meaningful connections.</p>
-            <p style={{ marginBottom: '0', textAlign: 'justify' }}>🗺️ Like a mapmaker charting new terrain, I translated bold ideas into real tools that serve a growing tribe of innovators across Africa.</p>
+      <div className="parchment-bg mobile-description-layout">
+        <div className="mobile-description-content">
+          <div className="description-text alt-color mobile-description">
+            <p>I joined the APP mission to build a space for African product leaders. My role involved designing and developing the website, helping shape a smooth and scalable user experience.</p>
+            <p>I also helped grow the community through social media campaigns and digital storytelling. Alongside the team, I planned and ran events that brought in high-quality leads and meaningful connections.</p>
+            <p>🗺️ Like a mapmaker charting new terrain, I translated bold ideas into real tools that serve a growing tribe of innovators across Africa.</p>
           </div>
         </div>
       </div>

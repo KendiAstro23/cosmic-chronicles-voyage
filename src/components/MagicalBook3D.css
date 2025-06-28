@@ -2240,3 +2240,602 @@ body, html {
     margin-bottom: 0.5rem;
   }
 }
+
+/* Mobile-Optimized Layout Classes */
+.mobile-education-layout,
+.mobile-work-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  position: relative;
+}
+
+.mobile-description-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Header Section */
+.mobile-header-section {
+  flex: 0 0 auto;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.mobile-title {
+  font-size: 1.8rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* Content Section */
+.mobile-content-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+/* Bottom Section */
+.mobile-bottom-section {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  margin-top: auto;
+}
+
+/* Education Info */
+.mobile-education-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(255, 215, 0, 0.2);
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.mobile-education-info .school-name,
+.mobile-education-info .school-degree,
+.mobile-education-info .school-dates,
+.mobile-education-info .school-location {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Work Info */
+.mobile-work-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(255, 215, 0, 0.2);
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.mobile-work-info .work-title,
+.mobile-work-info .work-company,
+.mobile-work-info .work-location,
+.mobile-work-info .work-dates {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Fairy Container */
+.mobile-fairy-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.mobile-fairy {
+  width: 120px !important;
+  height: 150px !important;
+  min-width: 80px !important;
+  min-height: 100px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(255, 247, 178, 0.8)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+/* Animal Images */
+.mobile-animal-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.mobile-leopard {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgba(255, 215, 0, 0.5));
+}
+
+.mobile-dragon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 32px rgba(255, 215, 0, 0.5));
+}
+
+.mobile-hippo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 32px rgba(255, 215, 0, 0.5));
+}
+
+.mobile-elephant {
+  width: 200px !important;
+  height: 120px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 0 48px rgba(255, 215, 0, 0.5));
+}
+
+/* Description Layout */
+.mobile-description-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.mobile-description {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.mobile-description p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Responsive adjustments for the new mobile layout */
+@media (max-width: 768px) {
+  .mobile-education-layout,
+  .mobile-work-layout,
+  .mobile-description-layout {
+    padding: 0.8rem;
+  }
+  
+  .mobile-title {
+    font-size: 1.6rem;
+  }
+  
+  .mobile-fairy {
+    width: 140px !important;
+    height: 175px !important;
+  }
+  
+  .mobile-leopard,
+  .mobile-dragon {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .mobile-hippo {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .mobile-elephant {
+    width: 250px !important;
+    height: 150px !important;
+  }
+  
+  .mobile-description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-education-layout,
+  .mobile-work-layout,
+  .mobile-description-layout {
+    padding: 0.6rem;
+  }
+  
+  .mobile-title {
+    font-size: 1.4rem;
+  }
+  
+  .mobile-fairy {
+    width: 120px !important;
+    height: 150px !important;
+  }
+  
+  .mobile-leopard,
+  .mobile-dragon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .mobile-hippo {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .mobile-elephant {
+    width: 200px !important;
+    height: 120px !important;
+  }
+  
+  .mobile-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-education-layout,
+  .mobile-work-layout,
+  .mobile-description-layout {
+    padding: 0.5rem;
+  }
+  
+  .mobile-title {
+    font-size: 1.3rem;
+  }
+  
+  .mobile-fairy {
+    width: 100px !important;
+    height: 125px !important;
+  }
+  
+  .mobile-leopard,
+  .mobile-dragon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .mobile-hippo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .mobile-elephant {
+    width: 180px !important;
+    height: 108px !important;
+  }
+  
+  .mobile-description {
+    font-size: 0.95rem;
+  }
+  
+  .mobile-education-info,
+  .mobile-work-info {
+    padding: 0.8rem;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-education-layout,
+  .mobile-work-layout,
+  .mobile-description-layout {
+    padding: 0.4rem;
+  }
+  
+  .mobile-title {
+    font-size: 1.2rem;
+  }
+  
+  .mobile-fairy {
+    width: 80px !important;
+    height: 100px !important;
+  }
+  
+  .mobile-leopard,
+  .mobile-dragon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .mobile-hippo {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .mobile-elephant {
+    width: 160px !important;
+    height: 96px !important;
+  }
+  
+  .mobile-description {
+    font-size: 0.9rem;
+  }
+  
+  .mobile-education-info,
+  .mobile-work-info {
+    padding: 0.6rem;
+    max-width: 98%;
+  }
+}
+
+/* Ensure proper spacing and layout */
+.mobile-header-section,
+.mobile-content-section,
+.mobile-bottom-section {
+  width: 100%;
+}
+
+.mobile-education-info,
+.mobile-work-info {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Better text readability */
+.mobile-education-info .school-name,
+.mobile-education-info .school-degree,
+.mobile-education-info .school-dates,
+.mobile-education-info .school-location,
+.mobile-work-info .work-title,
+.mobile-work-info .work-company,
+.mobile-work-info .work-location,
+.mobile-work-info .work-dates {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Ensure images don't overflow */
+.mobile-fairy,
+.mobile-leopard,
+.mobile-dragon,
+.mobile-hippo,
+.mobile-elephant {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Final optimizations for perfect mobile layout */
+@media (max-width: 768px) {
+  /* Ensure proper content flow in mobile layout */
+  .mobile-education-layout,
+  .mobile-work-layout {
+    min-height: 100%;
+    overflow: hidden;
+  }
+  
+  .mobile-description-layout {
+    min-height: 100%;
+    overflow: hidden;
+  }
+  
+  /* Better content distribution */
+  .mobile-content-section {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+  
+  /* Ensure proper text sizing and spacing */
+  .mobile-education-info .school-name,
+  .mobile-education-info .school-degree,
+  .mobile-education-info .school-dates,
+  .mobile-education-info .school-location {
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+  
+  .mobile-work-info .work-title,
+  .mobile-work-info .work-company,
+  .mobile-work-info .work-location,
+  .mobile-work-info .work-dates {
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+  
+  /* Better description text */
+  .mobile-description {
+    padding: 0.5rem;
+    line-height: 1.5;
+  }
+  
+  .mobile-description p {
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Ensure images are properly sized */
+  .mobile-fairy {
+    max-width: 140px;
+    max-height: 175px;
+  }
+  
+  .mobile-leopard,
+  .mobile-dragon {
+    max-width: 120px;
+    max-height: 120px;
+  }
+  
+  .mobile-hippo {
+    max-width: 140px;
+    max-height: 140px;
+  }
+  
+  .mobile-elephant {
+    max-width: 250px;
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Optimize for large mobile */
+  .mobile-education-info .school-name,
+  .mobile-education-info .school-degree,
+  .mobile-education-info .school-dates,
+  .mobile-education-info .school-location {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  
+  .mobile-work-info .work-title,
+  .mobile-work-info .work-company,
+  .mobile-work-info .work-location,
+  .mobile-work-info .work-dates {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  
+  .mobile-description {
+    padding: 0.4rem;
+    line-height: 1.4;
+  }
+  
+  .mobile-description p {
+    margin-bottom: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Optimize for standard mobile */
+  .mobile-education-info .school-name,
+  .mobile-education-info .school-degree,
+  .mobile-education-info .school-dates,
+  .mobile-education-info .school-location {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+  
+  .mobile-work-info .work-title,
+  .mobile-work-info .work-company,
+  .mobile-work-info .work-location,
+  .mobile-work-info .work-dates {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+  
+  .mobile-description {
+    padding: 0.3rem;
+    line-height: 1.3;
+  }
+  
+  .mobile-description p {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Reduce padding for better space utilization */
+  .mobile-education-info,
+  .mobile-work-info {
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Optimize for very small screens */
+  .mobile-education-info .school-name,
+  .mobile-education-info .school-degree,
+  .mobile-education-info .school-dates,
+  .mobile-education-info .school-location {
+    font-size: 0.9rem;
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+  }
+  
+  .mobile-work-info .work-title,
+  .mobile-work-info .work-company,
+  .mobile-work-info .work-location,
+  .mobile-work-info .work-dates {
+    font-size: 0.9rem;
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+  }
+  
+  .mobile-description {
+    padding: 0.2rem;
+    line-height: 1.2;
+  }
+  
+  .mobile-description p {
+    margin-bottom: 0.4rem;
+  }
+  
+  /* Minimal padding for maximum content */
+  .mobile-education-info,
+  .mobile-work-info {
+    padding: 0.4rem;
+  }
+}
+
+/* Ensure proper content flow and prevent overflow */
+.mobile-education-layout,
+.mobile-work-layout,
+.mobile-description-layout {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.mobile-content-section {
+  overflow: hidden;
+}
+
+.mobile-description-content {
+  overflow: hidden;
+}
+
+/* Better text wrapping for long content */
+.mobile-education-info,
+.mobile-work-info {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Ensure proper image scaling */
+.mobile-fairy,
+.mobile-leopard,
+.mobile-dragon,
+.mobile-hippo,
+.mobile-elephant {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Better spacing for touch interactions */
+.mobile-header-section,
+.mobile-content-section,
+.mobile-bottom-section {
+  touch-action: manipulation;
+}
+
+/* Ensure proper z-index layering */
+.mobile-header-section {
+  z-index: 3;
+}
+
+.mobile-content-section {
+  z-index: 2;
+}
+
+.mobile-bottom-section {
+  z-index: 1;
+}
