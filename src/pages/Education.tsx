@@ -6,7 +6,7 @@ import SiteNav from '../components/SiteNav';
 
 const Education = () => {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 flex items-center justify-center">
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 flex items-center justify-center p-4 md:p-0">
       <SiteNav />
       {/* Navigation */}
       <motion.div
@@ -28,7 +28,7 @@ const Education = () => {
 
       {/* Title */}
       <motion.div
-        className="absolute top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-40 px-4"
+        className="absolute top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-40 px-4 text-center"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
@@ -43,7 +43,7 @@ const Education = () => {
 
       {/* The 3D Magical Book */}
       <motion.div
-        className="w-full h-full px-4 md:px-0"
+        className="w-full h-full flex items-center justify-center"
         initial={{ scale: 0.8, opacity: 0, rotateY: -10 }}
         animate={{ scale: 1, opacity: 1, rotateY: 0 }}
         transition={{ duration: 2, ease: "easeOut" }}
