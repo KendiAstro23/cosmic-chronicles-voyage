@@ -72,21 +72,21 @@ const pagePairs = [
   // Intro Page
   {
     left: (
-      <div className="page-border fantasy-border gold-crown-edge">
-        <div className="intro-bg-left" />
-        <div className="intro-welcome-msg">
+      <div className="page-border fantasy-border gold-crown-edge mobile-intro-left">
+        <div className="intro-bg-left mobile-intro-bg" />
+        <div className="intro-welcome-msg mobile-welcome-msg">
           {introMessage.split(' ').map((word, i) => (
-            <span className="intro-magic-word" key={i} style={{ animationDelay: `${i * 0.14}s`, marginRight: '0.45em' }}>{word}</span>
+            <span className="intro-magic-word mobile-magic-word" key={i} style={{ animationDelay: `${i * 0.14}s`, marginRight: '0.3em' }}>{word}</span>
           ))}
         </div>
       </div>
     ),
     right: (
-      <div className="page-border fantasy-border gold-crown-edge">
-        <div className="intro-bg-right" />
-        <div className="intro-titlebox">
-          <div className="book-title-main">Explorer's Journal</div>
-          <div className="book-title-sub">Chronicles of a Cosmic Coder</div>
+      <div className="page-border fantasy-border gold-crown-edge mobile-intro-right">
+        <div className="intro-bg-right mobile-intro-bg" />
+        <div className="intro-titlebox mobile-titlebox">
+          <div className="book-title-main mobile-book-title-main">Explorer's Journal</div>
+          <div className="book-title-sub mobile-book-title-sub">Chronicles of a Cosmic Coder</div>
         </div>
       </div>
     ),
