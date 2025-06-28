@@ -78,13 +78,13 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         {/* Site-wide logo at top-left */}
-        <div style={{ position: 'fixed', top: 24, left: 24, zIndex: 1000, display: 'flex', alignItems: 'center' }}>
+        <div className="fixed top-4 left-4 md:top-6 md:left-6 z-50 flex items-center">
           <img
             src="/kendi prof.jpg"
             alt="Dorcas Kendi Logo"
-            style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'cover', boxShadow: '0 2px 12px #0004', border: '2px solid #fff' }}
+            className="w-10 h-10 md:w-13 md:h-13 rounded-full object-cover shadow-lg border-2 border-white"
           />
-          <span style={{ marginLeft: 16, fontWeight: 700, fontSize: '1.45rem', color: '#fff', letterSpacing: '0.04em', textShadow: '0 2px 8px #0008' }}>
+          <span className="ml-3 md:ml-4 font-bold text-lg md:text-xl lg:text-2xl text-white tracking-wide" style={{ textShadow: '0 2px 8px #0008' }}>
             Dorcas Kendi
           </span>
         </div>

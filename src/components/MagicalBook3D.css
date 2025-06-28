@@ -441,43 +441,286 @@ body, html {
 .flip-btn.right { right: 8px; }
 .flip-btn:hover { background: #ffd700; color: #3a2412; }
 
+@media (max-width: 1200px) {
+  .magical-book {
+    width: 95vw;
+    height: 75vh;
+    max-width: 1200px;
+    max-height: 800px;
+  }
+  
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .school-name, .school-degree, .school-dates, .school-location {
+    font-size: 1.1rem;
+  }
+  
+  .description-text {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 900px) {
   .magical-book {
     width: 98vw;
-    height: 62vw;
-    min-height: 320px;
-    min-width: 220px;
+    height: 70vh;
+    max-width: 900px;
+    max-height: 700px;
   }
+
   .edu-info-block {
-    max-width: 60vw;
+    min-width: 200px;
+    max-width: 320px;
   }
+
   .fairy-edu-large-cover {
-    width: 260px;
-    height: 320px;
-    right: -80px;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 160px !important;
+    height: 200px !important;
+    min-width: 120px !important;
+    min-height: 150px !important;
+  }
+  
+  .page-title {
+    font-size: 1.6rem;
+  }
+  
+  .school-name, .school-degree, .school-dates, .school-location {
+    font-size: 1rem;
+  }
+  
+  .description-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .book-fairy {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .flip-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 600px) {
   .magical-book {
     width: 100vw;
-    height: 80vw;
-    min-height: 220px;
-    min-width: 120px;
+    height: 65vh;
+    max-width: 600px;
+    max-height: 500px;
+    border-radius: 16px;
   }
+  
+  .page-border {
+    border-radius: 12px;
+    border-width: 2px;
+  }
+  
+  .page-title {
+    font-size: 1.4rem;
+  }
+
+  .school-name, .school-degree, .school-dates, .school-location {
+    font-size: 0.9rem;
+  }
+
+  .description-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .animal-img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .fairy-edu-large-cover {
+    width: 120px !important;
+    height: 150px !important;
+    min-width: 80px !important;
+    min-height: 100px !important;
+  }
+  
+  .book-fairy {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .flip-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  
+  .book-spine {
+    width: 24px;
+    border-radius: 12px;
+  }
+  
+  .gold-crown-decoration {
+    width: 40px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .magical-book {
+    width: 100vw;
+    height: 60vh;
+    max-height: 400px;
+    border-radius: 12px;
+  }
+  
+  .page-border {
+    border-radius: 8px;
+    border-width: 1px;
+  }
+  
   .page-title {
     font-size: 1.2rem;
   }
-  .school-name, .school-dates, .school-location {
-    font-size: 0.9rem;
+
+  .school-name, .school-degree, .school-dates, .school-location {
+    font-size: 0.8rem;
   }
+
   .description-text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    line-height: 1.2;
   }
+
   .animal-img {
-    width: 48px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .fairy-edu-large-cover {
+    width: 100px !important;
+    height: 120px !important;
+    min-width: 60px !important;
+    min-height: 80px !important;
+  }
+  
+  .book-fairy {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .flip-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+  
+  .book-spine {
+    width: 20px;
+    border-radius: 10px;
+  }
+  
+  .gold-crown-decoration {
+    width: 32px;
+    height: 16px;
+  }
+  
+  .edu-info-block {
+    min-width: 160px;
+    max-width: 280px;
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .magical-book {
+    width: 100vw;
+    height: 55vh;
+    max-height: 350px;
+  }
+  
+  .page-title {
+    font-size: 1rem;
+  }
+
+  .school-name, .school-degree, .school-dates, .school-location {
+    font-size: 0.7rem;
+  }
+
+  .description-text {
+    font-size: 0.7rem;
+    line-height: 1.1;
+  }
+
+  .animal-img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .fairy-edu-large-cover {
+    width: 80px !important;
+    height: 100px !important;
+    min-width: 50px !important;
+    min-height: 60px !important;
+  }
+  
+  .book-fairy {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .flip-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 8px;
+  }
+  
+  .book-spine {
+    width: 16px;
+    border-radius: 8px;
+  }
+  
+  .gold-crown-decoration {
+    width: 24px;
+    height: 12px;
+  }
+  
+  .edu-info-block {
+    min-width: 140px;
+    max-width: 240px;
+    padding: 8px 0;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .magical-book {
+    height: 85vh;
+    max-height: 300px;
+  }
+  
+  .page-title {
+    font-size: 1rem;
+  }
+
+  .school-name, .school-degree, .school-dates, .school-location {
+    font-size: 0.8rem;
+  }
+
+  .description-text {
+    font-size: 0.8rem;
+  }
+  
+  .fairy-edu-large-cover {
+    width: 80px !important;
+    height: 100px !important;
+  }
+  
+  .animal-img {
+    width: 60px;
+    height: 60px;
   }
 }
 

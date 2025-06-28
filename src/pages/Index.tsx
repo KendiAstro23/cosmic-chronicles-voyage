@@ -134,25 +134,25 @@ const NavigationMenu = () => {
 
   return (
     <motion.nav
-      className="fixed top-8 right-8 z-40"
+      className="fixed top-4 md:top-8 right-4 md:right-8 z-40"
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 1, delay: 2 }}
     >
-      <div className="bg-black/20 backdrop-blur-lg rounded-2xl p-4 border border-white/10">
-        <div className="space-y-2">
+      <div className="bg-black/20 backdrop-blur-lg rounded-2xl p-3 md:p-4 border border-white/10">
+        <div className="space-y-1 md:space-y-2">
           {menuItems.map((item, index) => (
             <Link key={item.path} to={item.path}>
               <motion.div
-                className="flex items-center space-x-3 px-4 py-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group"
+                className="flex items-center space-x-2 md:space-x-3 px-3 md:px-4 py-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 2.2 + index * 0.1 }}
               >
-                <span className="text-2xl flex items-center justify-center">{item.icon}</span>
-                <span className="text-white font-medium text-sm group-hover:text-blue-300 transition-colors">
+                <span className="text-xl md:text-2xl flex items-center justify-center">{item.icon}</span>
+                <span className="text-white font-medium text-xs md:text-sm group-hover:text-blue-300 transition-colors">
                   {item.name}
                 </span>
               </motion.div>
@@ -186,47 +186,66 @@ const Index = () => {
           <NavigationMenu />
           <SiteNav />
           
-          <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4">
+          <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-8">
             <motion.div
-              className="space-y-8 max-w-4xl"
+              className="space-y-6 md:space-y-8 max-w-4xl"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
               <motion.h1
-                className="text-6xl md:text-8xl font-bold text-white mb-8"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-4 md:mb-8"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 1.2 }}
               >
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Space Explorer
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  Dorcas Kendi
                 </span>
               </motion.h1>
               
               <motion.p
-                className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
+                className="text-lg md:text-2xl lg:text-3xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
               >
-                Journey through my cosmic portfolio where technology meets storytelling, 
-                and every project is a new world to discover.
+                <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent font-semibold">
+                  Cosmic Explorer & Digital Architect
+                </span>
               </motion.p>
-
-              <motion.div
-                className="flex flex-col items-center space-y-4 mt-12"
+              
+              <motion.p
+                className="text-sm md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 1.2 }}
+                transition={{ duration: 1, delay: 1.1 }}
               >
-                <p className="text-gray-400 text-sm">Begin your journey</p>
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                Navigating the digital cosmos, crafting experiences that bridge worlds, 
+                and exploring the intersection of technology and human connection.
+              </motion.p>
+              
+              <motion.div
+                className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mt-8 md:mt-12"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 1.4 }}
+              >
+                <motion.button
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-sm md:text-base hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <ArrowDown className="w-8 h-8 text-blue-400" />
-                </motion.div>
+                  Begin Journey
+                </motion.button>
+                
+                <motion.button
+                  className="border-2 border-white/30 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-white/10 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View Missions
+                </motion.button>
               </motion.div>
             </motion.div>
           </div>

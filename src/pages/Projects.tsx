@@ -118,24 +118,24 @@ const Projects = () => {
 
       {/* Navigation */}
       <motion.div
-        className="fixed top-8 left-8 z-50"
+        className="fixed top-4 md:top-8 left-4 md:left-8 z-50"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <Link to="/">
           <motion.div
-            className="bg-blue-900/30 backdrop-blur-lg rounded-full p-4 border border-blue-400/30 hover:bg-blue-800/40 transition-colors shadow-lg"
+            className="bg-blue-900/30 backdrop-blur-lg rounded-full p-3 md:p-4 border border-blue-400/30 hover:bg-blue-800/40 transition-colors shadow-lg"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <ArrowLeft className="w-6 h-6 text-blue-200" />
+            <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 text-blue-200" />
           </motion.div>
         </Link>
       </motion.div>
 
       {/* Mission Control Header */}
-      <div className="relative z-10 pt-20 pb-16">
+      <div className="relative z-10 pt-16 md:pt-20 pb-8 md:pb-16 px-4">
         <motion.div
           className="text-center"
           initial={{ y: -50, opacity: 0 }}
@@ -143,7 +143,7 @@ const Projects = () => {
           transition={{ duration: 1 }}
         >
           <motion.h1
-            className="text-6xl md:text-8xl font-bold text-white mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-4"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.2 }}
@@ -153,7 +153,7 @@ const Projects = () => {
             </span>
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-300 max-w-3xl mx-auto font-mono"
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-mono px-4"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -164,7 +164,7 @@ const Projects = () => {
 
         {/* Cosmic Navigation Map */}
         <motion.div
-          className="relative w-full h-96 mt-16 mx-auto max-w-6xl"
+          className="relative w-full h-64 md:h-96 mt-8 md:mt-16 mx-auto max-w-6xl"
           style={{ y: parallaxY }}
         >
           {/* Navigation Map Container */}
@@ -255,7 +255,7 @@ const Projects = () => {
       </div>
 
       {/* Mission Reports */}
-      <div className="relative z-10 space-y-32 py-16">
+      <div className="relative z-10 space-y-16 md:space-y-32 py-8 md:py-16 px-4">
         {missions.map((mission, index) => (
           <motion.section
             key={mission.id}
@@ -273,18 +273,18 @@ const Projects = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
 
             {/* Mission Content */}
-            <div className="relative z-10 container mx-auto px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10 container mx-auto px-4 md:px-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 
                 {/* Mission Log */}
                 <motion.div
-                  className="space-y-6"
+                  className="space-y-4 md:space-y-6 order-2 lg:order-1"
                   initial={{ x: -100, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <div className="bg-black/60 backdrop-blur-lg rounded-lg p-8 border border-blue-400/30">
+                  <div className="bg-black/60 backdrop-blur-lg rounded-lg p-6 md:p-8 border border-blue-400/30">
                     <motion.div
                       className="text-blue-300 text-sm font-mono mb-2"
                       initial={{ opacity: 0 }}
@@ -295,7 +295,7 @@ const Projects = () => {
                     </motion.div>
                     
                     <motion.h2
-                      className="text-4xl font-bold text-white mb-4"
+                      className="text-2xl md:text-4xl font-bold text-white mb-3 md:mb-4"
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.6 }}
@@ -304,7 +304,7 @@ const Projects = () => {
                     </motion.h2>
                     
                     <motion.p
-                      className="text-cyan-300 text-lg italic mb-6"
+                      className="text-cyan-300 text-base md:text-lg italic mb-4 md:mb-6"
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.7 }}
@@ -313,7 +313,7 @@ const Projects = () => {
                     </motion.p>
                     
                     <motion.p
-                      className="text-gray-300 leading-relaxed mb-8"
+                      className="text-gray-300 leading-relaxed mb-6 md:mb-8 text-sm md:text-base"
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.8 }}
@@ -331,7 +331,7 @@ const Projects = () => {
                       {mission.tech.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-blue-900/30 border border-blue-400/30 rounded-full text-sm text-blue-200 font-mono"
+                          className="px-2 md:px-3 py-1 bg-blue-900/30 border border-blue-400/30 rounded-full text-xs md:text-sm text-blue-200 font-mono"
                         >
                           {tech}
                         </span>
@@ -340,7 +340,7 @@ const Projects = () => {
 
                     {/* Action Buttons */}
                     <motion.div
-                      className="flex space-x-4"
+                      className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4"
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ delay: 1 }}
@@ -349,17 +349,17 @@ const Projects = () => {
                         href={mission.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+                        className="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg transition-colors text-sm md:text-base"
                         style={{ textDecoration: 'none' }}
                       >
                         <Rocket className="w-4 h-4" />
                         <span>Launch Mission</span>
                       </a>
                       <a
-                        href="https://github.com/KendiAstro23" // Replace with your actual GitHub username if needed
+                        href="https://github.com/KendiAstro23"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 border border-blue-400/30 text-blue-300 hover:bg-blue-900/20 px-6 py-3 rounded-lg transition-colors"
+                        className="flex items-center justify-center space-x-2 border border-blue-400/30 text-blue-300 hover:bg-blue-900/20 px-4 md:px-6 py-2 md:py-3 rounded-lg transition-colors text-sm md:text-base"
                         style={{ textDecoration: 'none' }}
                       >
                         <ExternalLink className="w-4 h-4" />
@@ -371,7 +371,7 @@ const Projects = () => {
 
                 {/* Mission Visual */}
                 <motion.div
-                  className="relative"
+                  className="relative order-1 lg:order-2"
                   initial={{ x: 100, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -381,7 +381,7 @@ const Projects = () => {
                     <motion.img
                       src={mission.planetImage}
                       alt={mission.planetName}
-                      className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
+                      className="w-full max-w-sm md:max-w-md mx-auto rounded-2xl shadow-2xl"
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     />
@@ -390,7 +390,7 @@ const Projects = () => {
                     <motion.img
                       src={mission.animalConstellation}
                       alt="Constellation"
-                      className="absolute -top-8 -right-8 w-16 h-16 opacity-60"
+                      className="absolute -top-4 md:-top-8 -right-4 md:-right-8 w-12 h-12 md:w-16 md:h-16 opacity-60"
                       animate={{ 
                         rotate: [0, 360],
                         scale: [1, 1.1, 1]
@@ -398,7 +398,7 @@ const Projects = () => {
                       transition={{ 
                         duration: 8, 
                         repeat: Infinity,
-                        ease: "easeInOut"
+                        ease: "linear"
                       }}
                     />
                   </div>

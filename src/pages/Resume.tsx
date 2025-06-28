@@ -45,100 +45,101 @@ const Resume = () => {
 
       {/* Navigation back */}
       <motion.div
-        className="fixed top-8 left-8 z-40"
+        className="fixed top-4 md:top-8 left-4 md:left-8 z-40"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <Link to="/">
           <motion.div
-            className="bg-green-400/20 backdrop-blur-lg rounded-full p-4 border border-green-400/30 hover:bg-green-400/30 transition-colors"
+            className="bg-green-400/20 backdrop-blur-lg rounded-full p-3 md:p-4 border border-green-400/30 hover:bg-green-400/30 transition-colors"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <ArrowDown className="w-6 h-6 text-green-400 rotate-90" />
+            <ArrowDown className="w-5 h-5 md:w-6 md:h-6 text-green-400 rotate-90" />
           </motion.div>
         </Link>
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-6 py-16">
+      <div className="relative z-10 container mx-auto px-4 md:px-6 py-8 md:py-16">
         {/* Terminal header */}
         <motion.div
-          className="mb-8"
+          className="mb-6 md:mb-8"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="bg-gray-800/80 backdrop-blur-sm rounded-t-2xl p-4 border-b border-green-400/30">
+          <div className="bg-gray-800/80 backdrop-blur-sm rounded-t-2xl p-3 md:p-4 border-b border-green-400/30">
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-green-400 font-mono text-sm ml-4">space_archives_terminal.exe</span>
+              <div className="w-2 h-2 md:w-3 md:h-3 bg-red-500 rounded-full"></div>
+              <div className="w-2 h-2 md:w-3 md:h-3 bg-yellow-500 rounded-full"></div>
+              <div className="w-2 h-2 md:w-3 md:h-3 bg-green-500 rounded-full"></div>
+              <span className="text-green-400 font-mono text-xs md:text-sm ml-3 md:ml-4">space_archives_terminal.exe</span>
             </div>
           </div>
         </motion.div>
 
         {/* Main terminal content */}
         <motion.div
-          className="bg-black/80 backdrop-blur-sm rounded-b-2xl p-8 border border-green-400/30 font-mono"
+          className="bg-black/80 backdrop-blur-sm rounded-b-2xl p-4 md:p-8 border border-green-400/30 font-mono"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
           {/* Terminal header */}
           <motion.div
-            className="mb-8"
+            className="mb-6 md:mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <div className="text-green-400 text-xl mb-2">
+            <div className="text-green-400 text-lg md:text-xl mb-2">
               {'>'} ACCESSING SPACE ARCHIVES...
             </div>
-            <div className="text-green-300 text-sm">
+            <div className="text-green-300 text-xs md:text-sm">
               {'>'} LOADING PERSONNEL FILE: SPACE_EXPLORER.pdf
             </div>
-            <div className="text-green-300 text-sm">
+            <div className="text-green-300 text-xs md:text-sm">
               {'>'} STATUS: READY FOR TRANSMISSION
             </div>
           </motion.div>
 
           {/* Resume display area */}
           <motion.div
-            className="bg-gray-900/50 rounded-xl p-6 border border-green-400/20 mb-8"
+            className="bg-gray-900/50 rounded-xl p-4 md:p-6 border border-green-400/20 mb-6 md:mb-8"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 md:mb-6 space-y-2 md:space-y-0">
               <div className="flex items-center space-x-3">
-                <FileText className="w-8 h-8 text-green-400" />
+                <FileText className="w-6 h-6 md:w-8 md:h-8 text-green-400" />
                 <div>
-                  <h3 className="text-green-400 text-lg font-semibold">PERSONNEL_RECORD.pdf</h3>
-                  <p className="text-green-300 text-sm">Comprehensive Space Explorer Documentation</p>
+                  <h3 className="text-green-400 text-base md:text-lg font-semibold">PERSONNEL_RECORD.pdf</h3>
+                  <p className="text-green-300 text-xs md:text-sm">Comprehensive Space Explorer Documentation</p>
                 </div>
               </div>
-              <div className="text-green-300 text-sm">
+              <div className="text-green-300 text-xs md:text-sm">
                 File Size: 2.4 MB | Classification: UNRESTRICTED
               </div>
             </div>
           </motion.div>
 
           <motion.div
-          className="mb-8"
+          className="mb-6 md:mb-8"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.9 }}
           >
-            <div className="text-green-400 text-lg mb-4">{'>'} PERSONNEL_FILE_DISPLAY</div>
+            <div className="text-green-400 text-base md:text-lg mb-4">{'>'} PERSONNEL_FILE_DISPLAY</div>
             <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-green-400/30">
             <object
             data="/Dorcas_CV.pdf#zoom=100"
             type="application/pdf"
             width="100%"
-            height="1000px"
-            style={{ display: 'block', width: '100%', height: '1000px' }}
+            height="600px"
+            className="w-full h-96 md:h-96 lg:h-screen"
+            style={{ display: 'block', width: '100%', minHeight: '400px' }}
             >
               <p>Your browser does not support PDFs. 
                 <a href="/Dorcas_CV.pdf" target="_blank" rel="noopener noreferrer">Click here to download the PDF.</a>
