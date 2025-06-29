@@ -601,6 +601,18 @@ body, html {
   .work-company, .work-location, .work-dates {
     font-size: 1.1rem;
   }
+
+  .page-lines {
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 6px,
+      #a67c52 7px,
+      transparent 8px,
+      transparent 20px
+    );
+    opacity: 0.22;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2422,5 +2434,48 @@ body, html {
     border-radius: 12px;
     left: 0;
     top: 0;
+  }
+}
+
+.intro-titlebox .book-title-main,
+.intro-titlebox .book-title-sub {
+  color: #1a2340 !important;
+  text-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-description-layout {
+    height: 100%;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  .mobile-description-content {
+    height: 100%;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  .mobile-description {
+    height: 100%;
+    width: 100%;
+    padding: 0.2em 0.4em 0.2em 0.4em !important;
+    margin: 0 !important;
+    font-size: 0.95rem;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    box-sizing: border-box;
+    word-break: break-word;
   }
 }
