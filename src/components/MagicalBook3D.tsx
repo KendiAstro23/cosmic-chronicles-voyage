@@ -72,23 +72,39 @@ const pagePairs = [
   // Intro Page
   {
     left: (
-      <div className="page-border fantasy-border gold-crown-edge mobile-intro-left">
-        <div className="intro-bg-left mobile-intro-bg" />
-        <div className="intro-welcome-msg mobile-welcome-msg">
-          {introMessage.split(' ').map((word, i) => (
-            <span className="intro-magic-word mobile-magic-word" key={i} style={{ animationDelay: `${i * 0.14}s`, marginRight: '0.3em' }}>{word}</span>
-          ))}
+      <React.Fragment>
+        <div className="intro-bg-left mobile-intro-bg" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, borderRadius: 'inherit' }} />
+        <div className="page-border fantasy-border gold-crown-edge mobile-intro-left" style={{ position: 'relative', zIndex: 1, background: 'transparent', overflow: 'hidden' }}>
+          <div className="intro-welcome-msg mobile-welcome-msg" style={{ position: 'relative', zIndex: 2, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+            {introMessage.split(' ').map((word, i) => (
+              <span
+                className="intro-magic-word mobile-magic-word"
+                key={i}
+                style={{
+                  animationDelay: `${i * 0.14}s`,
+                  marginRight: i !== introMessage.split(' ').length - 1 ? '0.7em' : 0,
+                  letterSpacing: '-0.04em',
+                  display: 'inline-block',
+                  whiteSpace: 'pre',
+                }}
+              >
+                {word}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
+      </React.Fragment>
     ),
     right: (
-      <div className="page-border fantasy-border gold-crown-edge mobile-intro-right">
-        <div className="intro-bg-right mobile-intro-bg" />
-        <div className="intro-titlebox mobile-titlebox">
-          <div className="book-title-main mobile-book-title-main">Explorer's Journal</div>
-          <div className="book-title-sub mobile-book-title-sub">Chronicles of a Cosmic Coder</div>
+      <React.Fragment>
+        <div className="intro-bg-right mobile-intro-bg" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, borderRadius: 'inherit' }} />
+        <div className="page-border fantasy-border gold-crown-edge mobile-intro-right" style={{ position: 'relative', zIndex: 1, background: 'transparent', overflow: 'hidden' }}>
+          <div className="intro-titlebox mobile-titlebox" style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="book-title-main mobile-book-title-main" style={{ letterSpacing: '-0.04em', wordSpacing: '0.5em' }}>Explorer's Journal</div>
+            <div className="book-title-sub mobile-book-title-sub" style={{ letterSpacing: '-0.04em', wordSpacing: '0.5em' }}>Chronicles of a Cosmic Coder</div>
+          </div>
         </div>
-      </div>
+      </React.Fragment>
     ),
   },
   // University Education Page
