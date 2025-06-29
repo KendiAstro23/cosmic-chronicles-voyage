@@ -134,7 +134,9 @@ const pagePairs = [
       <div className="parchment-bg mobile-description-layout">
         <div className="mobile-description-content">
           <div className="description-text alt-color mobile-description">
-            <p>{educationInfo[0].description[0]}</p>
+            <p>My journey began in the vast realms of the cosmos, where I explored the deep connections between stars, space, and science. This expedition taught me to navigate complex ideas in physics, mathematics, and computing, sharpening both curiosity and logic with every passing semester.</p>
+            <p className="emoji-paragraph">🌟 The night skies weren't just beautiful—they were a map, and I spent years learning how to read them.</p>
+            <p>Through countless nights of study and wonder, I learned to see the universe not just as distant lights, but as a story written in the language of science and curiosity.</p>
             <p>{educationInfo[0].description[1]}</p>
           </div>
         </div>
@@ -184,6 +186,7 @@ const pagePairs = [
         <div className="mobile-description-content">
           <div className="description-text alt-color mobile-description">
             <p>{educationInfo[1].description[0]}</p>
+            <p className="emoji-paragraph">🔮 Like decoding ancient runes, each line of code revealed a new way to shape the digital world around me.</p>
             <p>{educationInfo[1].description[1]}</p>
           </div>
         </div>
@@ -242,7 +245,7 @@ const pagePairs = [
           <div className="description-text alt-color mobile-description">
             <p>During my externship, I researched Expedia's competitors to help improve their advertising strategies.
 I suggested ways to boost client visibility within their Retail Media Network, contributing ideas for more effective campaign planning.</p>
-            <p>🔭 With the lens of a curious scout, I explored unfamiliar markets, bringing back insights to sharpen Expedia's vision.</p>
+            <p className="emoji-paragraph">🔭 With the lens of a curious scout, I explored unfamiliar markets, bringing back insights to sharpen Expedia's vision.</p>
           </div>
         </div>
       </div>
@@ -282,7 +285,7 @@ I suggested ways to boost client visibility within their Retail Media Network, c
             <p>I helped build an escrow platform that protects both buyers and sellers during online transactions.
 I handled the frontend development and collaborated on planning and team coordination.</p>
             <p>I also helped increase user engagement and visibility through interactive features and marketing ideas aimed at growing the platform's impact.</p>
-            <p>🛡️ I acted as both builder and shield-bearer—crafting tools for trust while guiding the team through the maze of early-stage challenges.</p>
+            <p className="emoji-paragraph">🛡️ I acted as both builder and shield-bearer—crafting tools for trust while guiding the team through the maze of early-stage challenges.</p>
           </div>
         </div>
       </div>
@@ -321,7 +324,7 @@ I handled the frontend development and collaborated on planning and team coordin
           <div className="description-text alt-color mobile-description">
             <p>I joined the APP mission to build a space for African product leaders. My role involved designing and developing the website, helping shape a smooth and scalable user experience.</p>
             <p>I also helped grow the community through social media campaigns and digital storytelling. Alongside the team, I planned and ran events that brought in high-quality leads and meaningful connections.</p>
-            <p>🗺️ Like a mapmaker charting new terrain, I translated bold ideas into real tools that serve a growing tribe of innovators across Africa.</p>
+            <p className="emoji-paragraph">🗺️ Like a mapmaker charting new terrain, I translated bold ideas into real tools that serve a growing tribe of innovators across Africa.</p>
           </div>
         </div>
       </div>
