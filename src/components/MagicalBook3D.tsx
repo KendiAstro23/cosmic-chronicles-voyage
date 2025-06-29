@@ -45,23 +45,23 @@ const educationInfo = [
 const workExperiences = [
   {
     title: 'Software Developer',
-    company: 'Tech Solutions Ltd',
-    location: 'Nairobi, Kenya',
-    dates: 'Jan 2023 - Present',
+    company: 'Expedia Media Solutions',
+    location: 'Remote',
+    dates: 'July 2024 - Sep 2024',
     description: `During my externship, I researched Expedia's competitors to help improve their advertising strategies.\nI suggested ways to boost client visibility within their Retail Media Network, contributing ideas for more effective campaign planning.\n🔭 With the lens of a curious scout, I explored unfamiliar markets, bringing back insights to sharpen Expedia's vision.`
   },
   {
     title: 'Frontend Developer',
-    company: 'Startup Ventures',
+    company: 'BaakiPay Limited',
     location: 'Remote',
-    dates: 'Jun 2022 - Dec 2022',
+    dates: 'Sep 2024 - Dec 2024',
     description: `I helped build an escrow platform that protects both buyers and sellers during online transactions.\nI handled the frontend development and collaborated on planning and team coordination.\nI also helped increase user engagement and visibility through interactive features and marketing ideas aimed at growing the platform's impact.\n🛡️ I acted as both builder and shield-bearer—crafting tools for trust while guiding the team through the maze of early-stage challenges.`
   },
   {
     title: 'Intern',
-    company: 'InnovateX',
+    company: 'Africa Product Peer',
     location: 'Nairobi, Kenya',
-    dates: 'Jan 2022 - May 2022',
+    dates: 'May 2025 - July 2025',
     description: `I joined the APP mission to build a space for African product leaders. My role involved designing and developing the website, helping shape a smooth and scalable user experience.\nI also helped grow the community through social media campaigns and digital storytelling. Alongside the team, I planned and ran events that brought in high-quality leads and meaningful connections.\n🗺️ Like a mapmaker charting new terrain, I translated bold ideas into real tools that serve a growing tribe of innovators across Africa.`
   }
 ];

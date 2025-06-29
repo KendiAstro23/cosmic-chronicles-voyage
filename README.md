@@ -71,3 +71,18 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Email Contact Form with Vercel Serverless Function
+
+To enable direct email sending from your contact form (no third-party service):
+
+1. Create a file at `/api/send-email.js` in your project root (next to package.json).
+2. Use the code provided in the project for the serverless function (see below).
+3. Install dependencies: `npm install nodemailer`
+4. In your Google Account, create an App Password for Gmail (see https://support.google.com/accounts/answer/185833?hl=en).
+5. Set the environment variables in Vercel:
+   - `GMAIL_USER` = your Gmail address (e.g. litalakendy975@gmail.com)
+   - `GMAIL_PASS` = your Gmail app password
+6. The contact form will POST to `/api/send-email` and you will receive emails directly in your inbox.
+
+**Sample serverless function code is in `/api/send-email.js`.**

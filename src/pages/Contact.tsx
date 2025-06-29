@@ -11,17 +11,30 @@ const Contact = () => {
     message: ''
   });
   const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setSending(false);
-      setFormData({ name: '', email: '', message: '' });
-      console.log("Message sent to Safari HQ:", formData);
-    }, 2000);
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then(res => {
+        if (res.ok) {
+          setStatus('Message sent successfully!');
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          setStatus('Failed to send message. Please try again.');
+        }
+        setSending(false);
+      })
+      .catch(() => {
+        setStatus('Failed to send message. Please try again.');
+        setSending(false);
+      });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -80,7 +93,7 @@ const Contact = () => {
             <motion.h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg"
             >
-              Safari HQ
+              Contact HQ
             </motion.h1>
             <motion.p
               className="text-lg md:text-xl text-white/90 drop-shadow-md px-4"
@@ -272,10 +285,14 @@ const Contact = () => {
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    <span>Send to Safari HQ</span>
+                    <span>Send to Contact HQ</span>
                   </>
                 )}
               </motion.button>
+
+              {status && (
+                <div className={`text-center text-sm font-semibold ${status.includes('success') ? 'text-green-400' : 'text-red-400'}`}>{status}</div>
+              )}
             </form>
           </motion.div>
 

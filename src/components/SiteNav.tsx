@@ -8,7 +8,7 @@ const navItems = [
   { name: 'My Journal', path: '/education', icon: <img src="/EJ-removebg-preview.png" alt="My Journal" style={{ width: 28, height: 28, objectFit: 'contain' }} /> },
   { name: 'My Missions', path: '/projects', icon: <img src="/astromars.png" alt="My Missions" style={{ width: 28, height: 28, objectFit: 'contain' }} /> },
   { name: 'My Archives', path: '/resume', icon: <span style={{ fontSize: 28 }}>📎</span> },
-  { name: 'Safari HQ', path: '/contact', icon: <img src="/earth1.png" alt="Safari HQ" style={{ width: 28, height: 28, objectFit: 'contain' }} /> },
+  { name: 'Contact HQ', path: '/contact', icon: <img src="/earth1.png" alt="Contact HQ" style={{ width: 28, height: 28, objectFit: 'contain' }} /> },
 ];
 
 const SiteNav = () => {
