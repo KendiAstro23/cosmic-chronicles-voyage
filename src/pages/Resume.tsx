@@ -9,20 +9,6 @@ const Resume = () => {
 
   const handleDownload = () => {
     setDownloading(true);
-    
-    // Create a temporary link element to trigger the download
-    const link = document.createElement('a');
-    link.href = '/Dorcas_CV.pdf';
-    link.download = 'Dorcas_Kendi_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Show success message and reset downloading state
-    setTimeout(() => {
-      setDownloading(false);
-      alert('✅ CV download initiated successfully! Check your downloads folder.');
-    }, 1000);
   };
 
   const achievements = [
@@ -142,7 +128,7 @@ const Resume = () => {
             style={{ display: 'block', width: '100%', minHeight: '400px' }}
             >
               <p>Your browser does not support PDFs. 
-                <a href="/Dorcas_CV.pdf" target="_blank" rel="noopener noreferrer">Click here to download the PDF.</a>
+                <a href="/public/Dorcas_CV.pdf" download="Dorcas_Kendi_CV.pdf" className="text-green-400 hover:text-green-300" target="_blank" rel="noopener noreferrer">Click here to download the PDF.</a>
               </p>
               </object>
             </div>

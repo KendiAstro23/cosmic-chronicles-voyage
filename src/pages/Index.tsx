@@ -71,58 +71,6 @@ const GalaxyBackground = () => {
   );
 };
 
-const IntroVideo = ({ onComplete }: { onComplete: () => void }) => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      onComplete();
-    }, 4000); // Simulating video duration
-
-    return () => clearTimeout(timer);
-  }, [onComplete]);
-
-  return (
-    <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black"
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-    >
-      <motion.div
-        className="text-center text-white space-y-6"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <motion.div
-          className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        >
-          <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center">
-            <div className="text-2xl">👩‍🚀</div>
-          </div>
-        </motion.div>
-        <motion.h1
-          className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          Welcome, Explorer
-        </motion.h1>
-        <motion.p
-          className="text-xl text-gray-300"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-        >
-          Prepare for a journey through space and time...
-        </motion.p>
-      </motion.div>
-    </motion.div>
-  );
-};
-
 const NavigationMenu = () => {
   const menuItems = [
     { name: 'Welcome', path: '/', icon: <img src="/green.png" alt="Welcome" style={{ width: 28, height: 28, objectFit: 'contain' }} /> },
@@ -165,115 +113,99 @@ const NavigationMenu = () => {
 };
 
 const Index = () => {
-  const [showIntro, setShowIntro] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-
-  const handleIntroComplete = () => {
-    setShowIntro(false);
-    setTimeout(() => setShowContent(true), 1000);
-  };
-
+  // Show main content immediately for fastest load
   return (
     <div className="min-h-screen relative overflow-hidden">
       <GalaxyBackground />
+      <NavigationMenu />
+      <SiteNav />
       
-      <AnimatePresence>
-        {showIntro && <IntroVideo onComplete={handleIntroComplete} />}
-      </AnimatePresence>
-
-      {showContent && (
-        <>
-          <NavigationMenu />
-          <SiteNav />
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-8">
+        <motion.div
+          className="space-y-6 md:space-y-8 max-w-4xl"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <motion.h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-4 md:mb-8"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2 }}
+          >
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              Dorcas Kendi
+            </span>
+          </motion.h1>
           
-          <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-8">
-            <motion.div
-              className="space-y-6 md:space-y-8 max-w-4xl"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
+          <motion.p
+            className="text-lg md:text-2xl lg:text-3xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
+            <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent font-semibold">
+              Cosmic Explorer & Digital Architect
+            </span>
+          </motion.p>
+          
+          <motion.p
+            className="text-sm md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.1 }}
+          >
+            Navigating the digital cosmos, crafting experiences that bridge worlds, 
+            and exploring the intersection of technology and human connection.
+          </motion.p>
+          
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mt-8 md:mt-12"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.4 }}
+          >
+            <motion.button
+              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-sm md:text-base hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <motion.h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-4 md:mb-8"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 1.2 }}
-              >
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  Dorcas Kendi
-                </span>
-              </motion.h1>
-              
-              <motion.p
-                className="text-lg md:text-2xl lg:text-3xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto"
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.8 }}
-              >
-                <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent font-semibold">
-                  Cosmic Explorer & Digital Architect
-                </span>
-              </motion.p>
-              
-              <motion.p
-                className="text-sm md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 1.1 }}
-              >
-                Navigating the digital cosmos, crafting experiences that bridge worlds, 
-                and exploring the intersection of technology and human connection.
-              </motion.p>
-              
-              <motion.div
-                className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mt-8 md:mt-12"
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 1.4 }}
-              >
-                <motion.button
-                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-sm md:text-base hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Begin Journey
-                </motion.button>
-                
-                <motion.button
-                  className="border-2 border-white/30 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-white/10 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View Missions
-                </motion.button>
-              </motion.div>
-            </motion.div>
-          </div>
+              Begin Journey
+            </motion.button>
+            
+            <motion.button
+              className="border-2 border-white/30 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-white/10 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View Missions
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </div>
 
-          {/* Floating particles */}
-          <div className="absolute inset-0 pointer-events-none">
-            {Array.from({ length: 20 }, (_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-blue-400 rounded-full opacity-30"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  y: [-20, -100],
-                  opacity: [0, 1, 0],
-                }}
-                transition={{
-                  duration: Math.random() * 3 + 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
-        </>
-      )}
+      {/* Floating particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 20 }, (_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-blue-400 rounded-full opacity-30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [-20, -100],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 };

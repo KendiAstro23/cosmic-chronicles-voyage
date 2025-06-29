@@ -396,7 +396,7 @@ const MagicalBook3D: React.FC = () => {
         return idx;
       });
       setFlipping('none');
-    }, 700);
+    }, 300);
   };
 
   return (
