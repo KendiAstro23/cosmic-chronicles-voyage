@@ -19,7 +19,7 @@ const Contact = () => {
     setSending(true);
     setStatus(null);
 
-    const SERVICE_ID = 'service_cnwshra';
+    const SERVICE_ID = 'service_fk8t3ad';
     const TEMPLATE_ID = 'template_zd1sqw8';
     const PUBLIC_KEY = 'MVXJ0UiVJd9M9ZR0q';
 
