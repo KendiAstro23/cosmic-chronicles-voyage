@@ -3,6 +3,7 @@ import { ArrowDown, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import SiteNav from '../components/SiteNav';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,28 +14,34 @@ const Contact = () => {
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    
-    fetch('/api/send-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-      .then(res => {
-        if (res.ok) {
-          setStatus('Message sent successfully!');
-          setFormData({ name: '', email: '', message: '' });
-        } else {
-          setStatus('Failed to send message. Please try again.');
-        }
-        setSending(false);
-      })
-      .catch(() => {
-        setStatus('Failed to send message. Please try again.');
-        setSending(false);
-      });
+    setStatus(null);
+
+    // EmailJS configuration
+    const SERVICE_ID = 'service_cnwshra';
+    const TEMPLATE_ID = 'template_zd1sqw8';
+    const PUBLIC_KEY = 'MVXJ0UiVJd9M9ZR0q';
+
+    try {
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      );
+      setStatus('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setStatus('Failed to send message. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
