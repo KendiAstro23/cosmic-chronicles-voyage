@@ -29,7 +29,7 @@ const Contact = () => {
         SERVICE_ID,
         TEMPLATE_ID,
         {
-          to_email: 'litalakendi975@gmail.com',
+          to_email: 'litalakendy975@gmail.com',
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
