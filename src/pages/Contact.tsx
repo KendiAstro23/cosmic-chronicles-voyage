@@ -19,7 +19,6 @@ const Contact = () => {
     setSending(true);
     setStatus(null);
 
-    // EmailJS configuration
     const SERVICE_ID = 'service_cnwshra';
     const TEMPLATE_ID = 'template_zd1sqw8';
     const PUBLIC_KEY = 'MVXJ0UiVJd9M9ZR0q';
@@ -29,10 +28,10 @@ const Contact = () => {
         SERVICE_ID,
         TEMPLATE_ID,
         {
-          to_email: 'litalakendy975@gmail.com',
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
+          to_email: 'litalakendy975@gmail.com',
         },
         PUBLIC_KEY
       );
@@ -40,6 +39,14 @@ const Contact = () => {
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       setStatus('Failed to send message. Please try again.');
+      if (error && typeof error === 'object') {
+        console.error('EmailJS error:', error);
+        if ('text' in error) {
+          console.error('EmailJS error text:', error.text);
+        }
+      } else {
+        console.error('EmailJS error:', error);
+      }
     } finally {
       setSending(false);
     }
