@@ -306,7 +306,15 @@ const Contact = () => {
               </motion.button>
 
               {status && (
-                <div className={`text-center text-sm font-semibold ${status.includes('success') ? 'text-green-400' : 'text-red-400'}`}>{status}</div>
+                <div className="flex flex-col items-center justify-center mt-4">
+                  <img 
+                    src="/kendi prof.jpg" 
+                    alt="Profile" 
+                    style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', boxShadow: '0 2px 12px rgba(0,0,0,0.2)' }} 
+                    className="mb-2"
+                  />
+                  <div className={`text-center text-sm font-semibold ${status.includes('success') ? 'text-green-400' : 'text-red-400'}`}>{status}</div>
+                </div>
               )}
             </form>
           </motion.div>

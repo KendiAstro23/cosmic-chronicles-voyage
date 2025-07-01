@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -37,7 +36,7 @@ const NotFound = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {/* Floating astronaut */}
+          {/* Floating astronaut restored */}
           <motion.div
             className="text-9xl mb-8"
             animate={{ 
