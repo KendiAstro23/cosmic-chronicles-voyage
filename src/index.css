@@ -199,3 +199,65 @@
     @apply m-2;
   }
 }
+
+.work-scroll-section {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
+.snap-mandatory {
+  scroll-snap-type: y mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+
+.parchment-card {
+  background: linear-gradient(135deg, #fffbe6 80%, #ffe066 100%);
+  border: 4px solid gold;
+  border-radius: 2rem 2rem 3rem 3rem/2.5rem 2.5rem 2rem 2rem;
+  box-shadow: 0 8px 32px 0 #eab30888, 0 -8px 32px 0 #0002;
+  position: relative;
+  overflow: visible;
+}
+.fade-in-sparkles {
+  opacity: 1;
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+.fade-out-sparkles {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+.floating-scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  z-index: 50;
+  pointer-events: none;
+  text-shadow: 0 2px 8px #ffe06688;
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2.2s infinite;
+}
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0) translateX(-50%); }
+  50% { transform: translateY(12px) translateX(-50%); }
+}
+@media (max-width: 768px) {
+  .parchment-card {
+    max-width: 98vw;
+    min-height: 70vh;
+    padding: 0.5rem 0.5rem;
+  }
+  .floating-scroll-indicator {
+    bottom: 1.2rem;
+    font-size: 1rem;
+  }
+}

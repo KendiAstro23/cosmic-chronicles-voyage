@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap');
+
+.parchment-bg {
+  background-color: #f8f5e4;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 2px, transparent 32px),
+    url('data:image/svg+xml;utf8,<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="%23f8f5e4"/><circle cx="60" cy="60" r="58" stroke="%23e2d8b3" stroke-width="2" opacity="0.08"/><circle cx="60" cy="60" r="40" stroke="%23e2d8b3" stroke-width="1" opacity="0.06"/></svg>'),
+    linear-gradient(135deg, #f8f5e4 80%, #f3eacb 100%);
+  background-size: auto, 120px 120px, cover;
+  background-blend-mode: lighten, normal, normal;
+}
+
+.font-caveat {
+  font-family: 'Caveat', 'Dancing Script', 'IM Fell English', cursive, serif;
+  letter-spacing: 0.02em;
+}
+
+.font-im-fell-english {
+  font-family: 'IM Fell English', 'Caveat', serif;
+  letter-spacing: 0.01em;
+}
+
+.journal-ruled-lines {
+  position: relative;
+}
+.journal-ruled-lines::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(120, 100, 60, 0.08) 0px,
+    rgba(120, 100, 60, 0.08) 1.5px,
+    transparent 1.5px,
+    transparent 40px
+  );
+  background-size: 100% 40px;
+  opacity: 0.7;
+}
+.journal-ruled-lines > * {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .journal-ruled-lines::before {
+    background-size: 100% 32px;
+  }
+}
+
+/* Fairy glow effect */
+.fairy-corner-glow {
+  filter: drop-shadow(0 0 24px #ffe066cc) drop-shadow(0 0 48px #b794f4aa);
+  transition: filter 0.3s;
+}
+
+/* Work section styles */
+.work-bg {
+  background: linear-gradient(135deg, #2d225a 60%, #3b1e4d 100%);
+}
+.work-border {
+  border: 4px double #b794f4;
+  border-radius: 2.5rem;
+  box-shadow: 0 0 32px 0 #b794f4cc, 0 0 0 8px #2d225a inset;
+  position: relative;
+  overflow: hidden;
+}
+.work-border::before {
+  content: '★';
+  position: absolute;
+  top: 0.5rem; left: 1.5rem;
+  font-size: 2rem;
+  color: #ffe066;
+  opacity: 0.7;
+  z-index: 2;
+}
+.work-border::after {
+  content: '★';
+  position: absolute;
+  bottom: 0.5rem; right: 1.5rem;
+  font-size: 2rem;
+  color: #ffe066;
+  opacity: 0.7;
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  .work-border {
+    border-radius: 1.2rem;
+  }
+}
+
+/* 🔥 Sticky Stack Additions */
+.sticky-stack-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.sticky-card {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  scroll-snap-align: start;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+  animation: fadein 0.5s ease-in-out;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}

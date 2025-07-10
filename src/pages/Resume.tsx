@@ -119,18 +119,28 @@ const Resume = () => {
           >
             <div className="text-green-400 text-base md:text-lg mb-4">{'>'} PERSONNEL_FILE_DISPLAY</div>
             <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-green-400/30">
-            <object
-            data="/Dorcas_CV.pdf#zoom=100"
-            type="application/pdf"
-            width="100%"
-            height="600px"
-            className="w-full h-96 md:h-96 lg:h-screen"
-            style={{ display: 'block', width: '100%', minHeight: '400px' }}
-            >
-              <p>Your browser does not support PDFs. 
-                <a href="/public/Dorcas_CV.pdf" download="Dorcas_Kendi_CV.pdf" className="text-green-400 hover:text-green-300" target="_blank" rel="noopener noreferrer">Click here to download the PDF.</a>
-              </p>
-              </object>
+              {/* Responsive PDF container */}
+              <div className="w-full flex justify-center items-center" style={{ minHeight: '200px' }}>
+                {/* Desktop/tablet: show embedded PDF */}
+                <object
+                  data="/Dorcas_CV.pdf#zoom=100"
+                  type="application/pdf"
+                  width="100%"
+                  height="600px"
+                  className="w-full h-96 md:h-96 lg:h-screen hidden sm:block"
+                  style={{ display: 'block', width: '100%', minHeight: '300px', maxHeight: '60vh' }}
+                >
+                  <div className="flex flex-col items-center justify-center p-4">
+                    <p className="text-green-700 text-center text-sm mb-2">PDF preview is not supported on your device. Please download the CV below.</p>
+                    <a href="/Dorcas_CV.pdf" download="Dorcas_Kendi_CV.pdf" className="bg-green-400/80 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-green-400 transition-colors" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
+                  </div>
+                </object>
+                {/* Mobile: show only download button and message */}
+                <div className="w-full flex flex-col items-center justify-center p-4 sm:hidden">
+                  <p className="text-green-700 text-center text-sm mb-2">PDF preview is not supported on mobile browsers. Please download the CV to view it.</p>
+                  <a href="/Dorcas_CV.pdf" download="Dorcas_Kendi_CV.pdf" className="bg-green-400/80 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-green-400 transition-colors" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
+                </div>
+              </div>
             </div>
           </motion.div>
 

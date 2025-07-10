@@ -60,7 +60,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 relative overflow-hidden">
+    <div className="min-h-screen bg-sky-900 relative overflow-hidden">
       <SiteNav />
       {/* Savannah background */}
       <div className="absolute inset-0">
