@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useViewportScroll, useTransform } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SiteNav from '../components/SiteNav';
@@ -380,6 +380,12 @@ const Index = () => {
 function MyJournalSection() {
   const education = journalEntries.filter(e => e.type === 'education');
   const work = journalEntries.filter(e => e.type === 'work');
+  const cardHeight = 320; // px, adjust as needed
+  const overlap = 60; // px, how much cards overlap
+  const stackRef = useRef(null);
+  // Section-relative scroll progress (0 = top in view, 1 = bottom out of view)
+  // const { scrollYProgress } = useScroll({ target: stackRef, offset: ['start end', 'end start'] });
+
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center parchment-bg/80 py-0 px-0 z-30">
       {/* Intro Block */}
@@ -431,43 +437,8 @@ function MyJournalSection() {
           </motion.div>
         ))}
       </div>
-      {/* Work Experience Stack */}
-      <div className="w-full text-center pb-8">
-        <h3 className="text-4xl md:text-5xl font-caveat text-indigo-900 drop-shadow-lg mb-4 mt-8 relative inline-block">
-          Work Experience
-          <span className="absolute left-1/2 -translate-x-1/2 bottom-[-0.5em] w-24 h-2 bg-indigo-300 rounded-full blur-md opacity-60 animate-pulse" />
-        </h3>
-      </div>
-      <div className="relative w-full max-w-3xl mx-auto flex flex-col items-center" style={{ minHeight: '60vh' }}>
-        {work.map((entry, i) => (
-          <motion.div
-            key={entry.title + entry.subtitle}
-            className="w-full bg-white/90 parchment-border rounded-3xl shadow-2xl p-8 md:p-10 mb-[-60px] relative"
-            style={{ zIndex: 10 - i, top: `${i * 40}px` }}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.7, delay: i * 0.18, ease: 'easeInOut' }}
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl md:text-3xl">{entry.icon}</span>
-              <h4 className="font-caveat font-bold text-2xl md:text-3xl text-indigo-900">{entry.title}</h4>
-              {entry.subtitle && <span className="text-lg md:text-xl text-indigo-700 font-caveat ml-2">{entry.subtitle}</span>}
-            </div>
-            <div className="text-base md:text-lg text-indigo-700 mb-3 font-medium flex flex-wrap gap-4 font-caveat">
-              {entry.location && <span>📍 {entry.location}</span>}
-              <span>📅 {entry.dates}</span>
-            </div>
-            <div className="text-gray-800 font-caveat text-lg md:text-xl max-w-2xl w-full space-y-2">
-              {entry.description.map((p, idx) => (
-                <p key={idx}>{p}</p>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-        {/* Add extra space for last card visibility */}
-        <div style={{ height: `${work.length * 40 + 120}px` }} />
-      </div>
+      {/* Work Experience Sticky Stack */}
+      {/* Removed WorkExperienceStickyStack component */}
     </section>
   );
 }

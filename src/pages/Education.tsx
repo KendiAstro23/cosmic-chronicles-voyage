@@ -1,9 +1,12 @@
+'use client';
+import { ReactLenis } from '@studio-freight/react-lenis';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SiteNav from '../components/SiteNav';
 import './EducationMagic.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
+import { useScroll, useTransform } from 'framer-motion';
 
 const entries = [
   {
@@ -13,7 +16,7 @@ const entries = [
     location: 'Nairobi, Kenya',
     dates: 'Sept 2019 – Sept 2024',
     icon: '🌌',
-    image: '/fairy4.png',
+    image: '/UON.jpg',
     imageAlt: 'Celestial Fairy',
     description: (
       <>
@@ -29,7 +32,7 @@ const entries = [
     location: 'Remote',
     dates: 'March 2023 – November 2024',
     icon: '🌠',
-    image: '/leopard.png',
+    image: '/ALX.jpg',
     imageAlt: 'Leopard Guardian',
     description: (
       <>
@@ -61,7 +64,7 @@ const entries = [
     location: 'Remote',
     dates: 'Aug 2024 – Present',
     icon: '🌎',
-    image: '/fairy2.png',
+    image: '/fairy4.png',
     imageAlt: 'Forest Fairy',
     description: (
       <>
@@ -123,194 +126,119 @@ const MagicalBorder = () => (
       </filter>
     </defs>
     <rect x="12" y="12" width="1896" height="1056" rx="64" fill="none" stroke="url(#glow1)" strokeWidth="16" filter="url(#softGlow)" opacity="0.8" />
-    {/* Decorative sparkles */}
-    <path d="M60 80 Q120 40 180 120 T300 100" stroke="#b794f4" strokeWidth="4" fill="none" opacity="0.5" />
-    <path d="M1860 1000 Q1800 1040 1720 960 T1600 980" stroke="#b794f4" strokeWidth="4" fill="none" opacity="0.5" />
-    <circle cx="120" cy="60" r="8" fill="#ffe066" opacity="0.7" />
-    <circle cx="1800" cy="1040" r="10" fill="#ffe066" opacity="0.5" />
-    <text x="90" y="120" fontSize="40" fill="#ffe066" opacity="0.7">✦</text>
-    <text x="1840" y="1040" fontSize="40" fill="#ffe066" opacity="0.7">☾</text>
-    <text x="200" y="1000" fontSize="32" fill="#b794f4" opacity="0.5">✧</text>
-    <text x="1700" y="80" fontSize="32" fill="#b794f4" opacity="0.5">✧</text>
-    <path d="M100 200 Q200 300 400 250 Q600 200 800 300" stroke="#ffe066" strokeWidth="2" fill="none" opacity="0.2" />
-    <path d="M1820 900 Q1700 800 1500 900 Q1300 1000 1100 900" stroke="#ffe066" strokeWidth="2" fill="none" opacity="0.2" />
   </svg>
-);
-
-const FairyCorners = () => (
-  <>
-    <img src="/fairy1.png" alt="Fairy Top Left" className="fixed top-0 left-0 w-20 md:w-32 opacity-80 fairy-corner-glow pointer-events-none z-50" style={{ transform: 'translate(-20%, -20%) rotate(-12deg)' }} />
-    <img src="/fairy2.png" alt="Fairy Top Right" className="fixed top-0 right-0 w-20 md:w-32 opacity-80 fairy-corner-glow pointer-events-none z-50" style={{ transform: 'translate(20%, -20%) rotate(10deg)' }} />
-    <img src="/fairy3.png" alt="Fairy Bottom Left" className="fixed bottom-0 left-0 w-20 md:w-32 opacity-80 fairy-corner-glow pointer-events-none z-50" style={{ transform: 'translate(-20%, 20%) rotate(8deg)' }} />
-    <img src="/fairy4.png" alt="Fairy Bottom Right" className="fixed bottom-0 right-0 w-20 md:w-32 opacity-80 fairy-corner-glow pointer-events-none z-50" style={{ transform: 'translate(20%, 20%) rotate(-8deg)' }} />
-  </>
 );
 
 const Education = () => {
   const workEntries = entries.filter(e => e.type === 'work');
   const firstWorkIdx = entries.findIndex(e => e.type === 'work');
-  const lastWorkIdx = entries.map(e => e.type).lastIndexOf('work');
-  const workSectionRef = useRef<HTMLDivElement>(null);
-  const [workActive, setWorkActive] = useState(false);
-
-  useEffect(() => {
-    if (workActive) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [workActive]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!workSectionRef.current) return;
-      const rect = workSectionRef.current.getBoundingClientRect();
-      const fullyPinned = rect.top === 0 && rect.bottom === window.innerHeight;
-      setWorkActive(fullyPinned);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const sectionVariants = {
     initial: { opacity: 0, y: 80 },
     animate: { opacity: 1, y: 0 },
   };
 
+  const stackRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: stackRef,
+    offset: ['start start', 'end end'],
+  });
+
   return (
-    <div className="w-full min-h-screen parchment-bg overflow-x-hidden relative">
-      <MagicalBorder />
-      <FairyCorners />
-      <SiteNav />
+    <ReactLenis root>
+      <div className="w-full min-h-screen parchment-bg overflow-x-hidden relative">
+        <MagicalBorder />
+        <SiteNav />
 
-      {/* Navigation Button */}
-      <motion.div
-        className="fixed top-2 md:top-6 left-2 md:left-6 z-50"
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Link to="/">
-          <motion.div
-            className="bg-amber-900/60 backdrop-blur-lg rounded-full p-2 md:p-3 border-2 border-yellow-600/70 hover:bg-amber-800/70 transition-colors shadow-2xl"
-            whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(251, 191, 36, 0.4)' }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 text-amber-200" />
-          </motion.div>
-        </Link>
-      </motion.div>
+        {/* Back Button */}
+        <motion.div className="fixed top-4 left-4 z-50" initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
+          <Link to="/">
+            <motion.div className="bg-amber-900/60 p-3 rounded-full border-2 border-yellow-600/70 shadow-2xl hover:bg-amber-800/70 transition">
+              <ArrowLeft className="w-5 h-5 text-amber-200" />
+            </motion.div>
+          </Link>
+        </motion.div>
 
-      {/* Page Title */}
-      <div className="w-full text-center pt-16 pb-8">
-        <h1 className={`text-4xl md:text-6xl ${titleFont} text-yellow-900 drop-shadow-lg`}>Education & Work History</h1>
-        <p className="text-lg md:text-2xl text-yellow-700 font-caveat mt-2">A journey through learning and magical work experiences</p>
-      </div>
+        {/* Title */}
+        <div className="text-center pt-16 pb-8">
+          <h1 className={`${titleFont} text-5xl md:text-6xl text-yellow-900 drop-shadow-lg`}>Education & Work History</h1>
+          <p className="text-xl md:text-2xl text-yellow-700 font-caveat mt-2">A journey through learning and magical work experiences</p>
+        </div>
 
-      {/* Education Cards */}
-      <div className="flex flex-col journal-ruled-lines">
-        {entries.slice(0, firstWorkIdx).map((entry, idx) => (
-          <motion.section
-            key={entry.title + entry.subtitle}
-            className={`w-full min-h-screen flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-16 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''} px-2 sm:px-6 md:px-16 py-0`}
-            style={{ scrollSnapAlign: 'start', zIndex: 10 - idx }}
-            variants={sectionVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.7, ease: 'easeInOut' }}
-          >
-            <div className="flex-1 flex items-center justify-center relative min-h-[320px]">
-              <img src={entry.image} alt={entry.imageAlt} className="object-contain w-48 h-48 md:w-80 md:h-80 drop-shadow-lg rounded-2xl" />
-            </div>
-            <div className={`flex-[1.5] basis-3/5 flex flex-col justify-center items-center md:items-start text-center md:text-left px-2 sm:px-6 md:px-8 max-w-4xl mx-auto`}>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl md:text-3xl">{entry.icon}</span>
-                <h2 className={`${titleFont} text-yellow-800`}>{entry.title}</h2>
-              </div>
-              {entry.subtitle && <h3 className="text-lg md:text-2xl text-yellow-700 font-semibold mb-2 font-caveat">{entry.subtitle}</h3>}
-              <div className="text-base md:text-xl text-yellow-600 mb-4 font-medium flex flex-wrap gap-4 font-caveat">
-                {entry.location && <span>📍 {entry.location}</span>}
-                <span>📅 {entry.dates}</span>
-              </div>
-              <div className={`text-gray-800 ${textFont} max-w-3xl w-full space-y-6`}>{entry.description}</div>
-            </div>
-          </motion.section>
-        ))}
-
-        {/* Sticky Work Stack */}
-        <div ref={workSectionRef} className="sticky-stack-wrapper w-full overflow-y-auto" style={{ height: '100vh', zIndex: 100 }}>
-          <div className="w-full flex flex-col items-center justify-center pt-20 pb-8 bg-transparent sticky top-0 z-20">
-            <h2 className="text-5xl md:text-6xl font-im-fell-english text-indigo-100 drop-shadow-lg tracking-wider mb-2">Work Experience</h2>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-3xl md:text-4xl animate-pulse">★</span>
-              <span className="text-xl md:text-2xl text-indigo-200 font-im-fell-english">Professional Journey</span>
-              <span className="text-3xl md:text-4xl animate-pulse">★</span>
-            </div>
-          </div>
-          {workEntries.map((entry, idx) => (
-            <motion.section
-              key={entry.title + entry.subtitle}
-              className="sticky-card w-full h-screen flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-16 px-2 sm:px-6 md:px-16 py-0 work-bg work-border"
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.7 }}
-              transition={{ duration: 0.7, ease: 'easeInOut' }}
+        {/* Unified Scroll Snap Container for All Cards */}
+        <div
+          className="overflow-y-auto overflow-x-hidden h-screen scroll-smooth"
+          style={{ scrollSnapType: 'y mandatory', height: '100vh' }}
+        >
+          {/* Education Section */}
+          {entries.slice(0, firstWorkIdx).map((entry, idx) => (
+            <section
+              key={entry.title}
+              className={`w-full min-h-screen flex flex-col md:flex-row items-center md:items-stretch gap-4 sm:gap-8 md:gap-16 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''} px-2 sm:px-4 md:px-16 py-8 sm:py-12 md:py-20`}
+              style={{ scrollSnapAlign: 'start' }}
             >
-              <div className="flex-1 flex items-center justify-center relative min-h-[320px]">
-                <img src={entry.image} alt={entry.imageAlt} className="object-contain w-48 h-48 md:w-80 md:h-80 drop-shadow-lg rounded-2xl" />
+              <div className="flex-1 flex items-center justify-center">
+                <img src={entry.image} alt={entry.imageAlt} className="object-contain w-full max-w-xs sm:max-w-md md:max-w-lg h-auto mt-8 sm:mt-12 md:mt-20 drop-shadow-lg rounded-2xl" />
               </div>
-              <div className="flex-[1.5] basis-3/5 flex flex-col justify-center items-center md:items-start text-center md:text-left px-2 sm:px-6 md:px-8 max-w-4xl mx-auto">
+              <div className="flex-[1.5] flex flex-col justify-center items-center md:items-start text-center md:text-left max-w-4xl mx-auto">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-2xl md:text-3xl">{entry.icon}</span>
-                  <h2 className="font-im-fell-english font-bold text-4xl md:text-5xl tracking-wider text-indigo-100">{entry.title}</h2>
+                  <span className="text-xl sm:text-2xl md:text-3xl">{entry.icon}</span>
+                  <h2 className={`${titleFont} text-yellow-800 text-2xl sm:text-3xl md:text-5xl`}>{entry.title}</h2>
                 </div>
-                {entry.subtitle && <h3 className="text-lg md:text-2xl text-indigo-200 font-semibold mb-2 font-im-fell-english">{entry.subtitle}</h3>}
-                <div className="text-base md:text-xl text-indigo-200 mb-4 font-medium flex flex-wrap gap-4 font-im-fell-english">
+                {entry.subtitle && <h3 className="text-lg sm:text-xl md:text-2xl text-yellow-700 font-semibold mb-2 font-caveat">{entry.subtitle}</h3>}
+                <div className="text-base sm:text-lg md:text-xl text-yellow-600 mb-4 font-caveat flex flex-wrap gap-2 sm:gap-4">
                   {entry.location && <span>📍 {entry.location}</span>}
                   <span>📅 {entry.dates}</span>
                 </div>
-                <div className="text-indigo-50 font-im-fell-english text-[1.4rem] md:text-2xl tracking-normal leading-[2.1] max-w-3xl w-full space-y-6">{entry.description}</div>
+                <div className={`text-gray-800 ${textFont} max-w-3xl space-y-4 sm:space-y-6`}>{entry.description}</div>
               </div>
-            </motion.section>
+            </section>
+          ))}
+
+          {/* Work Experience Heading */}
+          <section
+            className="w-full min-h-screen flex flex-col items-center justify-center bg-indigo-950 text-indigo-100 px-2 sm:px-4 md:px-16 py-8 sm:py-12 md:py-20"
+            style={{ scrollSnapAlign: 'start' }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-im-fell-english text-indigo-200 drop-shadow-xl mb-4">Work Experience</h2>
+            <p className="text-lg sm:text-xl md:text-2xl text-indigo-300 font-im-fell-english mt-2">Scroll through my magical missions</p>
+          </section>
+
+          {/* Work Experience Cards */}
+          {workEntries.map((entry, idx) => (
+            <section
+              key={entry.title}
+              className={`w-full min-h-screen flex flex-col items-center justify-center gap-4 sm:gap-8 md:gap-16 px-2 sm:px-4 md:px-16 py-8 sm:py-12 md:py-20 ${idx % 2 === 0 ? 'bg-black text-white' : 'bg-gray-300 text-black'}`}
+              style={{ scrollSnapAlign: 'start' }}
+            >
+              <div className="w-full max-w-4xl text-center rounded-3xl parchment-border shadow-2xl py-8 sm:py-12 md:py-20 px-2 sm:px-6">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4">
+                  <span className="text-xl sm:text-2xl md:text-3xl">{entry.icon}</span>
+                  <h4 className="font-caveat font-bold text-2xl sm:text-3xl md:text-4xl">{entry.title}</h4>
+                </div>
+                {entry.subtitle && (
+                  <h5 className="text-lg sm:text-xl md:text-2xl text-indigo-800 font-caveat mb-2">{entry.subtitle}</h5>
+                )}
+                <div className="text-base sm:text-lg md:text-xl text-indigo-600 mb-4 font-caveat flex flex-wrap gap-2 sm:gap-4 justify-center">
+                  {entry.location && <span>📍 {entry.location}</span>}
+                  <span>📅 {entry.dates}</span>
+                </div>
+                <div className="flex justify-center mb-4 sm:mb-6 mt-4 sm:mt-6">
+                  <img
+                    src={entry.image}
+                    alt={entry.imageAlt}
+                    className="object-contain w-full max-w-xs sm:max-w-md md:max-w-lg h-auto rounded-2xl drop-shadow-xl"
+                  />
+                </div>
+                <div className="text-base sm:text-lg md:text-xl font-im-fell-english leading-7 sm:leading-8 md:leading-8 max-w-3xl mx-auto space-y-3 sm:space-y-4 md:space-y-4">
+                  {entry.description}
+                </div>
+              </div>
+            </section>
           ))}
         </div>
-
-        {/* Post-work entries (if any) */}
-        {entries.slice(lastWorkIdx + 1).map((entry, idx) => (
-          <motion.section
-            key={entry.title + entry.subtitle}
-            className={`w-full min-h-screen flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-16 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''} px-2 sm:px-6 md:px-16 py-0`}
-            style={{ scrollSnapAlign: 'start', zIndex: 10 - idx }}
-            variants={sectionVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.7, ease: 'easeInOut' }}
-          >
-            <div className="flex-1 flex items-center justify-center relative min-h-[320px]">
-              <img src={entry.image} alt={entry.imageAlt} className="object-contain w-48 h-48 md:w-80 md:h-80 drop-shadow-lg rounded-2xl" />
-            </div>
-            <div className={`flex-[1.5] basis-3/5 flex flex-col justify-center items-center md:items-start text-center md:text-left px-2 sm:px-6 md:px-8 max-w-4xl mx-auto`}>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl md:text-3xl">{entry.icon}</span>
-                <h2 className={`${titleFont} text-yellow-800`}>{entry.title}</h2>
-              </div>
-              {entry.subtitle && <h3 className="text-lg md:text-2xl text-yellow-700 font-semibold mb-2 font-caveat">{entry.subtitle}</h3>}
-              <div className="text-base md:text-xl text-yellow-600 mb-4 font-medium flex flex-wrap gap-4 font-caveat">
-                {entry.location && <span>📍 {entry.location}</span>}
-                <span>📅 {entry.dates}</span>
-              </div>
-              <div className={`text-gray-800 ${textFont} max-w-3xl w-full space-y-6`}>{entry.description}</div>
-            </div>
-          </motion.section>
-        ))}
       </div>
-    </div>
+    </ReactLenis>
   );
 };
 
