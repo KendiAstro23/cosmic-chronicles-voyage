@@ -1,12 +1,14 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Rocket, Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { Link, useEffect, useRef } from 'react';
 import SiteNav from '../components/SiteNav';
 
 const Projects = () => {
   const [selectedMission, setSelectedMission] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  // Refs for each mission card
+  const missionRefs = useRef({});
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -21,8 +23,8 @@ const Projects = () => {
       missionDay: "Day 217",
       description: "An efficient finance tracker crafted for the Orion settlers(Poor Budgetters!), enabling them to monitor their credits, manage trade logs, and chart spending galaxies across time. Helped spacefolk make lightyears-ahead(informed) decisions with clarity and control.",
       tech: ["React", "Tailwind", "Chart.js", "Financial API"],
-      backgroundImage: "/Finance.jpg?height=300&width=600",
-      planetImage: "/mars1.png?height=300&width=600",
+      backgroundImage: "/Finance.jpg",
+      planetImage: "/mars1.png",
       animalConstellation: "/elephant.png", // Elephant
       coordinates: { x: 42, y: 55 },
       href: "https://finance-tracker-7ftm.vercel.app/"
@@ -50,8 +52,8 @@ const Projects = () => {
       missionDay: "Earth Day 492",
       description: "On a lush island sanctuary deep within Earth's last biodome, this health system connects caretakers with their communities. From tracking wellness programs to synchronizing healing rituals (appointments), CEMA LifeLink became the heartbeat of sustainable care in the wilderness.",
       tech: ["React", "Django", "PostgreSQL", "REST API"],
-      backgroundImage: "/bg.jpg?height=300&width=600",
-      planetImage: "/earth1.png?height=300&width=600",
+      backgroundImage: "/bg.jpg",
+      planetImage: "/earth1.png",
       animalConstellation: "/lion.png", // Safari animal
       coordinates: { x: 18, y: 72 },
       href: "https://chfrontend.vercel.app/"
@@ -65,8 +67,8 @@ const Projects = () => {
       missionDay: "Stardate 492.8",
       description: "Tucked within a quiet orbital station(Cloud), the Library Constellation became a trusted resource hub for knowledge seekers. With systems to browse, borrow, and return every type of tome, this app kept voyagers enlightened—even in the farthest reaches of space.",
       tech: ["Ruby on Rails", "PostgreSQL", "JavaScript", "Library System API"],
-      backgroundImage: "/background-fbcbd973.jpg?height=300&width=600",
-      planetImage: "/stars.jpg?height=300&width=600",
+      backgroundImage: "/background-fbcbd973.jpg",
+      planetImage: "/stars.jpg",
       animalConstellation: "/rhino.png", 
       coordinates: { x: 83, y: 62 },
       href: "https://github.com/KendiAstro23/library_app"
@@ -87,6 +89,17 @@ const Projects = () => {
     }
     
   ];
+
+  // Scroll to mission if hash is present
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      const el = missionRefs.current[id];
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }, []);
 
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
@@ -259,6 +272,7 @@ const Projects = () => {
         {missions.map((mission, index) => (
           <motion.section
             key={mission.id}
+            ref={el => { missionRefs.current[mission.id] = el; }}
             className="relative min-h-screen flex items-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

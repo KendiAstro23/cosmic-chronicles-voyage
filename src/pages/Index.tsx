@@ -54,7 +54,6 @@ const GalaxyBackground = () => {
         playsInline
         style={{ zIndex: 0 }}
       />
-      {/* Overlay gradients removed for clear video */}
       <StarField />
       {/* Animated cosmic elements */}
       <motion.div
@@ -114,6 +113,9 @@ const NavigationMenu = () => {
 };
 
 const Index = () => {
+  // Ref for My Journal section
+  const journalRef = useRef(null);
+
   // Show main content immediately for fastest load
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -170,17 +172,20 @@ const Index = () => {
               className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-sm md:text-base hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => journalRef.current && journalRef.current.scrollIntoView({ behavior: 'smooth' })}
             >
               Begin Journey
             </motion.button>
             
-            <motion.button
-              className="border-2 border-white/30 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-white/10 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Missions
-            </motion.button>
+            <Link to="/projects">
+              <motion.button
+                className="border-2 border-white/30 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-white/10 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Missions
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
@@ -211,7 +216,7 @@ const Index = () => {
       {/* --- New Sections Below Hero --- */}
       <main className="relative z-20 w-full flex flex-col items-center">
         {/* My Journal Section – Karman-Inspired */}
-        <section className="w-full relative z-20 min-h-screen flex flex-col items-center justify-center">
+        <section ref={journalRef} className="w-full relative z-20 min-h-screen flex flex-col items-center justify-center">
         <div className="text-center mb-12">
           <h2 className="text-9xl md:text-10xl font-caveat text-white-900 drop-shadow-lg relative inline-block">
             My Journal
